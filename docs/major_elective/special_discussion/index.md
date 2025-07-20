@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/special_discussion/
+latest: https://zju-turing.github.io/TuringCourses/major/special_discussion/
+---
+
 # 专题研讨
 <div class="badges">
 <span class="badge cs-badge">CS 专业选修</span>

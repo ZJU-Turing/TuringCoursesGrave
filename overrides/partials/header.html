@@ -20,7 +20,9 @@
             <button class="md-version__current">grave</button>
             <ul class="md-version__list">
               <li class="md-version__item">
-                {% if page.canonical_url %}
+                {% if page.meta and page.meta.latest %}
+                  <a href="{{ page.meta.latest }}" class="md-version__link">latest</a>
+                {% elif page.canonical_url %}
                   <a href="{{ page.canonical_url.replace('Grave', '') }}" class="md-version__link">latest</a>
                 {% else %}
                   <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="md-version__link">latest</a>

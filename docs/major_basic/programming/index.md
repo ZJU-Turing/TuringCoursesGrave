@@ -1,6 +1,8 @@
 ---
 abbrs: 
     - 程算
+discussion: TuringCourses/major/programming/
+latest: https://zju-turing.github.io/TuringCourses/major/programming/
 ---
 
 # 程序设计与算法基础

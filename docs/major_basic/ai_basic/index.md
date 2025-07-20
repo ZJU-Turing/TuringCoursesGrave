@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/ai_basic/
+latest: https://zju-turing.github.io/TuringCourses/major/ai_basic/
+---
+
 # 人工智能引论
 <div class="badges">
 <span class="badge cs-badge">CS 专业基础</span>

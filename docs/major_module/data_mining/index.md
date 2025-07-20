@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/data_mining/
+latest: https://zju-turing.github.io/TuringCourses/major/data_mining/
+---
+
 # 数据挖掘导论
 <div class="badges">
 <span class="badge cs-badge">CS 专业模块-计算机科学</span>

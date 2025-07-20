@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/object_oriented_programming/
+latest: https://zju-turing.github.io/TuringCourses/major/object_oriented_programming/
+---
+
 # 面向对象程序设计
 
 <div class="badges">

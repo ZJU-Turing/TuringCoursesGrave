@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/data_structure/
+latest: https://zju-turing.github.io/TuringCourses/major/data_structure/
+---
+
 # 数据结构基础
 
 <div class="badges">

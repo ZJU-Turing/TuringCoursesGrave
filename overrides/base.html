@@ -7,7 +7,9 @@
     <head>
       {% block site_meta %}
         <meta name="robots" content="noindex">
-        {% if page.canonical_url %}
+        {% if page.meta and page.meta.discussion %}
+          <meta property="og:title" content="{{ page.meta.discussion }}">
+        {% elif page.canonical_url %}
           <meta property="og:title" content="{{ '/'.join(page.canonical_url.split('/')[3:]).replace('Grave', '') }}">
         {% endif %}
         <meta charset="utf-8">

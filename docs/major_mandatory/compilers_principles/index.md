@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/compilers_principles/
+latest: https://zju-turing.github.io/TuringCourses/major/compilers_principles/
+---
+
 # 编译原理
 
 <div class="badges">

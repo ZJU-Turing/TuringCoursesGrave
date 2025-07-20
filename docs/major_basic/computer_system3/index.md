@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/computer_system3/
+latest: https://zju-turing.github.io/TuringCourses/major/computer_system3/
+---
+
 # 计算机系统 Ⅲ
 
 <div class="badges">

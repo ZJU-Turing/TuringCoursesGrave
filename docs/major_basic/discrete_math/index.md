@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/discrete_math/
+latest: https://zju-turing.github.io/TuringCourses/major/discrete_math/
+---
+
 # 离散数学理论基础
 <div class="badges">
 <span class="badge cs-badge">CS 专业基础</span>

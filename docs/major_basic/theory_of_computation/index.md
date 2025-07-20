@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/theory_of_computation/
+latest: https://zju-turing.github.io/TuringCourses/major/theory_of_computation/
+---
+
 # 理论计算机科学导引
 
 <div class="badges">

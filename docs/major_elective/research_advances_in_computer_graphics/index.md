@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/research_advances_in_computer_graphics/
+latest: https://zju-turing.github.io/TuringCourses/major/research_advances_in_computer_graphics/
+---
+
 # 计算机图形学研究进展
 <div class="badges">
 <span class="badge cs-badge">CS 专业选修</span>

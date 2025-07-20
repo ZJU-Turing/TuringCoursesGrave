@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/machine_learning/
+latest: https://zju-turing.github.io/TuringCourses/major/machine_learning/
+---
+
 # 机器学习
 
 <div class="badges">

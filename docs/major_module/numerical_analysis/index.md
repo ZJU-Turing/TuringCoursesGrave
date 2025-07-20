@@ -1,6 +1,8 @@
 ---
 abbrs:
     - NA
+discussion: TuringCourses/major/numerical_analysis/
+latest: https://zju-turing.github.io/TuringCourses/major/numerical_analysis/
 ---
 
 # 数值分析

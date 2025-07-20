@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/technology_communication/
+latest: https://zju-turing.github.io/TuringCourses/major/technology_communication/
+---
+
 # 技术沟通
 <div class="badges">
 <span class="badge cs-badge">CS 专业选修</span>

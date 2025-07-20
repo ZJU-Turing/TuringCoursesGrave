@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/computer_networks/
+latest: https://zju-turing.github.io/TuringCourses/major/computer_networks/
+---
+
 # 计算机网络
 
 <div class="badges">

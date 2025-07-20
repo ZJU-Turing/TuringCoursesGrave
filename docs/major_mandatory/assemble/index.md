@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/assemble/
+latest: https://zju-turing.github.io/TuringCourses/major/assemble/
+---
+
 # 汇编语言
 <div class="badges">
 <span class="badge is-badge">IS 专业必修</span>

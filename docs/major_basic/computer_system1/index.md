@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/computer_system1/
+latest: https://zju-turing.github.io/TuringCourses/major/computer_system1/
+---
+
 # 计算机系统 Ⅰ
 <div class="badges">
 <span class="badge is-badge">IS 专业基础</span>

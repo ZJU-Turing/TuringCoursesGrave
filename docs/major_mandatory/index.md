@@ -1,3 +1,7 @@
+---
+latest: https://zju-turing.github.io/TuringCourses/major/mandatory/
+---
+
 # 专业必修课
 
 三个专业有较大差别，但也有一个专业的必修课作为另一个专业的选修课的情况，可以互相参考。

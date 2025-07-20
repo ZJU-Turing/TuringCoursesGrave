@@ -1,6 +1,8 @@
 ---
 abbrs:
     - 量子计算
+discussion: TuringCourses/major/quantum_computing/
+latest: https://zju-turing.github.io/TuringCourses/major/quantum_computing/
 ---
 
 # 量子计算理论基础与软件系统

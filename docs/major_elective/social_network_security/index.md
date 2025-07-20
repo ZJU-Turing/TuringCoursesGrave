@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/social_network_security/
+latest: https://zju-turing.github.io/TuringCourses/major/social_network_security/
+---
+
 # 社交网络安全与隐私
 <div class="badges">
 <span class="badge is-badge">IS 专业选修</span>

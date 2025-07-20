@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/computer_graphics/
+latest: https://zju-turing.github.io/TuringCourses/major/computer_graphics/
+---
+
 # 计算机图形学
 <div class="badges">
 <span class="badge cs-badge">CS 专业选修</span>

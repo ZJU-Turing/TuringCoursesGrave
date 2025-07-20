@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/computer_vision/
+latest: https://zju-turing.github.io/TuringCourses/major/computer_vision/
+---
+
 # 计算机视觉
 <div class="badges">
 <span class="badge cs-badge">CS 专业选修</span>

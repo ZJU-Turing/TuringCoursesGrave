@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/database/
+latest: https://zju-turing.github.io/TuringCourses/major/database/
+---
+
 # 数据库系统
 <div class="badges">
 <span class="badge cs-badge">CS 专业必修</span>

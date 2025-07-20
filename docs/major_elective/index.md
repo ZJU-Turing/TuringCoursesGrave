@@ -1,3 +1,7 @@
+---
+latest: https://zju-turing.github.io/TuringCourses/major/elective/
+---
+
 # 专业选修课
 
 !!! warning

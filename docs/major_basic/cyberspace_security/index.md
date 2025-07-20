@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/cyberspace_security/
+latest: https://zju-turing.github.io/TuringCourses/major/cyberspace_security/
+---
+
 # 网络空间安全导论
 <div class="badges">
 <span class="badge cs-badge">CS 专业基础</span>

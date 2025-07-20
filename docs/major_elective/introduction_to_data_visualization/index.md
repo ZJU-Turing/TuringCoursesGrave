@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/introduction_to_data_visualization/
+latest: https://zju-turing.github.io/TuringCourses/major/introduction_to_data_visualization/
+---
+
 # 数据可视化导论
 <div class="badges">
 <span class="badge is-badge">CS/AI/IS 专业选修</span>

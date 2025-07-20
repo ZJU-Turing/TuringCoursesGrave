@@ -1,3 +1,8 @@
+---
+discussion: TuringCourses/major/advanced_data_structure/
+latest: https://zju-turing.github.io/TuringCourses/major/advanced_data_structure/
+---
+
 # 高级数据结构与算法分析
 
 <div class="badges">
