@@ -1,10 +1,10 @@
 site_name: 图灵班学习指南
-site_url: https://ZJU-Turing.github.io/TuringCourses/
+site_url: https://ZJU-Turing.github.io/TuringCoursesGrave/
 site_description: 图灵班学习指南
 repo_name: ZJU-Turing/TuringCourses
 repo_url: https://github.com/ZJU-Turing/TuringCourses/
 edit_uri: tree/master/docs
-copyright: Copyright &copy; 2023-2024 浙江大学图灵班
+copyright: Copyright &copy; 2023-2025 浙江大学图灵班
 
 nav:
   - 主页:
@@ -155,7 +155,6 @@ theme:
   favicon: images/icon.png
   features:
     - content.code.annotate
-    - content.action.edit
     - navigation.tracking
     - navigation.top
     - navigation.tabs
@@ -173,10 +172,11 @@ plugins:
   - heti:
       extra_skipped_class:
         - arithmatex
-  - turing_changelog
-  - turing_contributors
+  - turing_changelog:
+      grave: true
+  - turing_contributors:
+      grave: true
   - turing_evaluations
-  - turing_outdate_warning
 
 extra_css:
   - https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i&display=fallback
