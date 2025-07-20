@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="图灵班学习指南" name="description"/>
+<link href="https://ZJU-Turing.github.io/TuringCourses/major_basic/object_oriented_programming/" rel="canonical"/>
+<link href="../computer_organization/" rel="prev"/>
+<link href="../theory_of_computation/" rel="next"/>
+<link href="../../images/icon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>面向对象程序设计 - 图灵班学习指南</title>
+<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<link href="../../css/tasklist.css" rel="stylesheet"/>
+<link href="../../css/card.css" rel="stylesheet"/>
+<link href="../../css/custom.css" rel="stylesheet"/>
+<link href="../../css/counter.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script src="../../js/scheme.js" type="text/javascript"></script>
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+            跳转至
+          </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="图灵班学习指南" class="md-header__button md-logo" data-md-component="logo" href="../.." title="图灵班学习指南">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            图灵班学习指南
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              面向对象程序设计
+            
+          </span>
+</div>
+</div>
+</div>
+<div class="md-header__options">
+<div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+<a class="light-mode" href="javascript:toggleScheme();" title="Light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</a>
+<a class="dark-mode" href="javascript:toggleScheme();" title="Dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</a>
+<a class="system-mode" href="javascript:toggleScheme();" title="System preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
+</a>
+<a class="unknown-mode" href="javascript:toggleScheme();" title="Unknown scheme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10Z"></path></svg>
+</a>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ZJU-Turing/TuringCourses/" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ZJU-Turing/TuringCourses
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        主页
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../political/">
+        思政军体课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../general/">
+        通识选修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../math_phys/">
+        数理基础课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        专业基础课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_mandatory/">
+        专业必修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_module/">
+        专业模块课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_elective/">
+        专业选修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../short_term/">
+        短学期课程
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../others/">
+        跨专业课程
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../readings/">
+        书评专区
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="图灵班学习指南" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="图灵班学习指南">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"></path></svg>
+</a>
+    图灵班学习指南
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ZJU-Turing/TuringCourses/" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ZJU-Turing/TuringCourses
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">主页</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="主页" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../contributing/">
+        贡献指南
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../template/">
+        课程页面模板
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../changelog/">
+        更新历史
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../political/">思政军体课</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="思政军体课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          思政军体课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/situation_policy1/">
+        形势与政策 Ⅰ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/morality_law/">
+        思想道德与法治
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/modern_history/">
+        中国近现代史纲要（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/marxism_basic/">
+        马克思主义基本原理（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/mao_thought/">
+        毛泽东思想和中国特色社会主义理论体系概论（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/xi_thought/">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/situation_policy2/">
+        形势与政策 Ⅱ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/military_theory/">
+        军事理论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../general/">通识选修课</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="通识选修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          通识选修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/core/">
+        通识核心课
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/elective/">
+        通识选修课
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/others/">
+        其他选修课
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math_phys/">数理基础课</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="数理基础课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          数理基础课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/linear_algebra1/">
+        线性代数 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/linear_algebra2/">
+        线性代数 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/math_analysis1/">
+        数学分析（甲）Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/math_analysis2/">
+        数学分析（甲）Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics1/">
+        普通物理学 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics2/">
+        普通物理学 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics_experiment1/">
+        普通物理学实验 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics_experiment2/">
+        普通物理学实验 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/probability/">
+        概率论（H）
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">专业基础课</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业基础课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          专业基础课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../programming/">
+        程序设计与算法基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cyberspace_security/">
+        网络空间安全导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../discrete_math/">
+        离散数学理论基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ai_basic/">
+        人工智能引论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data_structure/">
+        数据结构基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_data_structure/">
+        高级数据结构与算法分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logic_design/">
+        计算机逻辑设计基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_organization/">
+        计算机组成与设计
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          面向对象程序设计
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        面向对象程序设计
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    课程学习内容
+  </a>
+<nav aria-label="课程学习内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    先修要求
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    任课教师
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    分数构成
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    课程教材
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    参考阅读
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    参考资料
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../theory_of_computation/">
+        理论计算机科学导引
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../convex_optimization/">
+        优化基本理论与方法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../operating_system/">
+        操作系统原理与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_system1/">
+        计算机系统 Ⅰ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_system2/">
+        计算机系统 Ⅱ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_system3/">
+        计算机系统 Ⅲ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_mandatory/">专业必修课</a>
+<label for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业必修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          专业必修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/database/">
+        数据库系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_networks/">
+        计算机网络
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_architecture/">
+        计算机体系结构
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/software_engineering/">
+        软件工程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/compilers_principles/">
+        编译原理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/cognitive_neuroscience/">
+        认知神经科学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/machine_learning/">
+        机器学习
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_ethics_security/">
+        人工智能伦理与安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_practice/">
+        人工智能实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_vision/">
+        计算机视觉导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/design_cognition/">
+        设计认知与设计智能
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_chips_systems/">
+        人工智能芯片与系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/natural_language_processing/">
+        自然语言处理导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/assemble/">
+        汇编语言
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/cryptography/">
+        密码学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/data_security/">
+        数据安全与隐私保护
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/software_security/">
+        软件安全原理和实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/network_security/">
+        网络安全原理与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_security/">
+        人工智能安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/wireless_iot_security/">
+        无线与物理网安全基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/system_security/">
+        系统安全原理和实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_module/">专业模块课</a>
+<label for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业模块课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          专业模块课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/numerical_analysis/">
+        数值分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/applied_operations_research/">
+        应用运筹学基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/principle_of_programming_languages/">
+        编程语言原理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/history_of_cs_ideas/">
+        计算机科学思想史
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/data_mining/">
+        数据挖掘导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/assembly_interface/">
+        汇编与接口
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/embedded_system/">
+        嵌入式系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/parallel_computing/">
+        并行计算与多核编程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/system_comprehensive_practice/">
+        计算机系统综合实现
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/distributed_computing/">
+        分布式计算
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/big_data_storage/">
+        大数据存储与计算技术
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_elective/">专业选修课</a>
+<label for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业选修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          专业选修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/technology_communication/">
+        技术沟通
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/digital_image_processing/">
+        图像信息处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/signal_processing_for_cybersecurity/">
+        面向信息安全的信号处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/brain_inspired_ai/">
+        脑启发人工智能导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/ai_logic/">
+        人工智能逻辑
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computational_photography/">
+        计算摄影学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computer_vision/">
+        计算机视觉
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/introduction_to_data_visualization/">
+        数据可视化导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/special_discussion/">
+        专题研讨
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/social_network_security/">
+        社交网络安全与隐私
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/quantum_computing/">
+        量子计算理论基础与软件系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/multimedia_security/">
+        多媒体安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computer_graphics/">
+        计算机图形学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/intelligent_acquisition_of_visual_information/">
+        智能视觉信息采集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/research_advances_in_computer_graphics/">
+        计算机图形学研究进展
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">短学期课程</a>
+<label for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="短学期课程" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          短学期课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" id="__nav_9_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">固定课程</a>
+<label for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="固定课程" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+          固定课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ics/">
+        计算机系统概论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ai_practice/">
+        人工智能实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" id="__nav_9_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">课程综合实践 Ⅰ</a>
+<label for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="课程综合实践 Ⅰ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+          课程综合实践 Ⅰ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/hpc/">
+        超算实训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/acm/">
+        算法竞赛集训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ctf/">
+        安全攻防实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/data_visualization/">
+        大数据可视化
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" id="__nav_9_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">课程综合实践 Ⅱ</a>
+<label for="__nav_9_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="课程综合实践 Ⅱ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_4">
+<span class="md-nav__icon md-icon"></span>
+          课程综合实践 Ⅱ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/cpp_project/">
+        C++ 项目管理及工程实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/rust/">
+        Rust 开发实训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/llm_practice/">
+        大模型应用与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/data_market/">
+        数据要素市场概论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../others/">跨专业课程</a>
+<label for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="跨专业课程" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          跨专业课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/ode/">
+        常微分方程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/numerical_linear_algebra/">
+        数值代数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/data_modeling_and_analysis/">
+        数据建模与分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/abstract_algebra/">
+        抽象代数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/number_theory/">
+        数论导引
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/stochastic_process/">
+        随机过程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/point_set_topology/">
+        点集拓扑
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/economics/">
+        经济学类课程集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/finance/">
+        金融学类课程集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/browser_server_software/">
+        B/S 体系软件设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/electronic_engineering_training/">
+        电子工程训练
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/introduction_to_psychology/">
+        心理学导论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../readings/">书评专区</a>
+</div>
+<nav aria-label="书评专区" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          书评专区
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    课程学习内容
+  </a>
+<nav aria-label="课程学习内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    先修要求
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    任课教师
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    分数构成
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    课程教材
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    参考阅读
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    参考资料
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ZJU-Turing/TuringCourses/tree/master/docs/major_basic/object_oriented_programming/index.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<div class="admonition warning">
+<p class="admonition-title">1751001242</p>
+</div>
+<h1 id="_1">面向对象程序设计<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div class="badges">
+<span class="badge cs-badge">CS 专业基础</span>
+<span class="badge ai-badge">AI 专业基础</span>
+<span class="badge is-badge">IS 专业基础</span>
+</div>
+<h2 id="_2">课程学习内容<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>以<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>语言为例学习面向对象语言的特点。课程一部分学习<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>的语法，一部分学习<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>实现封装、继承和多态的方式。</p>
+<h3 id="_3">先修要求<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>数据结构基础</li>
+<li>掌握<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言</li>
+</ul>
+<p>（个人认为<span class="heti-skip"><span class="heti-spacing"> </span>C++ 0<span class="heti-spacing"> </span></span>基础来上课是没问题的，想准备可以提前了解下相关语法和特性<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>）</p>
+<h2 id="_4">任课教师<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">翁恺</label><label for="__tabbed_1_2">陈翔</label><label for="__tabbed_1_3">李际军</label><label for="__tabbed_1_4">许威威</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><del>不出意外的话后续几年图灵班<span class="heti-skip"><span class="heti-spacing"> </span>OOP<span class="heti-spacing"> </span></span>的预置老师还会是翁恺老师。</del>尽管翁恺老师在<span class="heti-skip"><span class="heti-spacing"> </span>21<span class="heti-spacing"> </span></span>级风评飞速下跌，大有晚节不保的情况，但作为永平奖获得者和在<span class="heti-skip"><span class="heti-spacing"> </span>OOP<span class="heti-spacing"> </span></span>课程组辛勤耕耘<span class="heti-skip"><span class="heti-spacing"> </span>20<span class="heti-spacing"> </span></span>余年的老师，翁恺老师授课毫无疑问还是最有水平的，也会做出很多课程外的知识拓展，因此不太推荐更换预置的翁恺老师。</p>
+<p>翁恺老师的<span class="heti-skip"><span class="heti-spacing"> </span>OOP<span class="heti-spacing"> </span></span>应该稳定是<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>个实验，<span>20<span class="heti-spacing"> </span></span>级是七个简单的<span class="heti-skip"><span class="heti-spacing"> </span>OJ lab<span class="heti-spacing"> </span></span>还有一个组队的大作业；<span>21<span class="heti-spacing"> </span></span>级是<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>个<span><span class="heti-spacing"> </span>Project</span> ，其中需要手批并且提交报告的三个<span class="heti-skip"><span class="heti-spacing"> </span>project<span class="heti-spacing"> </span></span>需要投入的时间较多；<span>22<span class="heti-spacing"> </span></span>级是<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>lab<span class="heti-spacing"> </span></span>加<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个<span><span class="heti-spacing"> </span>project</span>，其中<span class="heti-skip"><span class="heti-spacing"> </span>lab<span class="heti-spacing"> </span></span>难度不高，考察基础知识点，<span>project<span class="heti-spacing"> </span></span>则是由助教手改，需要对其要求与实现上点心。要注意的是<span class="heti-skip"><span class="heti-spacing"> </span>project<span class="heti-spacing"> </span></span>的实验要求并不一定完全在<span class="heti-skip"><span class="heti-spacing"> </span>pta<span class="heti-spacing"> </span></span>上给出，至少<span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>级<span class="heti-skip"><span class="heti-spacing"> </span>project1<span class="heti-spacing"> </span></span>的一些更细致的评分与要求被上传到了学在浙大上。</p>
+<p>与大二下诸多神仙课程比较，这门课难度不是特别大，但期末考试考纲不定，每个老师教的东西也不定，<span>C++<span class="heti-spacing"> </span></span>的相关规则本来就是很零散的知识点，复习起来也没有想象中那么容易。不过翁恺老师讲的很多比较难的都不在考察范围（上课基本只会讲到<span class="heti-skip"><span class="heti-spacing"> </span>C++98<span class="heti-spacing"> </span></span>标准，仅涉及少量<span class="heti-skip"><span class="heti-spacing"> </span>C++11<span class="heti-spacing"> </span></span>标准），极大减轻了负担。</p>
+<p>翁恺老师给分还是值得信赖的，有补分集可以补满平时分（考虑到有补分集，因此存在期中考让大家巩固一遍春学期的内容其实算是件好事<heti-adjacent class="heti-adjacent-half">？</heti-adjacent><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。老师会有少数查重，<span>20<span class="heti-spacing"> </span></span>级有一次。类似于程算，翁恺老师的点名基本是随机抽一个人随机回答问题，<span>21<span class="heti-spacing"> </span></span>级没有全班点名的情况。在<span class="heti-skip"><span class="heti-spacing"> </span>20<span class="heti-spacing"> </span></span>级有一次突击<span class="heti-skip"><span class="heti-spacing"> </span>paper work<span class="heti-spacing"> </span></span>的小测（时间和题目都与<span class="heti-skip"><span class="heti-spacing"> </span>19<span class="heti-spacing"> </span></span>级一致，因此可以参考往年录播）；<span>21<span class="heti-spacing"> </span></span>级的小测是在学在浙大进行的且<span class="heti-skip"><span class="heti-spacing"> </span>ddl<span class="heti-spacing"> </span></span>设置在了当天晚上；<span>22<span class="heti-spacing"> </span></span>级则基本都是在<span class="heti-skip"><span class="heti-spacing"> </span>pta<span class="heti-spacing"> </span></span>上做课前小测，只有一次在学在浙大上的突击小测；而<span class="heti-skip"><span class="heti-spacing"> </span>23<span class="heti-spacing"> </span></span>级则改为在学在浙大上进行，且一般在上课前半小时发布，<span>ddl<span class="heti-spacing"> </span></span>为上课时间。</p>
+<p>当然有一个小的雷点就是<span class="heti-skip"><span class="heti-spacing"> </span>oop<span class="heti-spacing"> </span></span>部分他的编程题描述不清或者有一些奇怪的测试点，经常会搞人心态（翁老师可能忙着自己的公司对作业的审核越来越不上心了）。</p>
+</div>
+<div class="tabbed-block">
+<p>陈翔老师应该是<span class="heti-skip"><span class="heti-spacing"> </span>OOP<span class="heti-spacing"> </span></span>这门课体验最好的老师了。老师的<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>风格非常简洁且现代，讲课思路也非常清晰，对于<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>的语法和面向对象的思想讲解得非常到位，不拘泥于课程大纲，也会讲一些实际的编程技巧。会在学在浙大上放课件和扩展阅读资料，大多都是下面提到的 <em>Effective C++</em> 中的章节。老师上课是会用<span class="heti-skip"><span class="heti-spacing"> </span>vim<span class="heti-spacing"> </span></span>实际写代码来展示的<del>，看着也非常赏心悦目</del>。</p>
+<p>没有任何形式的考勤。平时作业包括<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>次<span class="heti-skip"><span class="heti-spacing"> </span>assignment<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>次作业，每周交叉布置。<span>Assignment<span class="heti-spacing"> </span></span>类似<span><span class="heti-spacing"> </span>lab</span>，不过是主观题的形式由助教批改，无报告，要求比较宽松，自由发挥的空间比较大。作业一般是一或两道填空题或程序填空题，都比较简单。大作业是实现一个序列化和反序列化的库，要求支持二进制和<span class="heti-skip"><span class="heti-spacing"> </span>XML<span class="heti-spacing"> </span></span>两种格式（使用<span class="heti-skip"><span class="heti-spacing"> </span>tinyxml2<span class="heti-spacing"> </span></span>库）。从历两年来看助教在批改作业的给分上相当慷慨，平时分基本上都是满分（<span>22<span class="heti-spacing"> </span></span>春夏大作业在<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>上标为<span class="heti-skip"><span class="heti-spacing"> </span>60<span class="heti-spacing"> </span></span>分，满分比例是<span><span class="heti-spacing"> </span>88/142</span>，<span>55<span class="heti-spacing"> </span></span>分及以上比例是<span><span class="heti-spacing"> </span>109/142</span>）。</p>
+</div>
+<div class="tabbed-block">
+<p>考勤：纸质点名<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>做简单题目，听<span class="heti-skip"><span class="heti-spacing"> </span>21<span class="heti-spacing"> </span></span>级学长说是只有一次签到，一次占比<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分；但是<span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>级签到了三四次，第一次签到在第二周就有了，并且事后请假没有用，老师也不怎么看钉钉（有同学是亚运会志愿者，事后请假，还是找了别的老师之后才给算上的，可能是学校没有沟通好<heti-adjacent class="heti-adjacent-half">？</heti-adjacent>）</p>
+<p>平时作业：<span>7<span class="heti-spacing"> </span></span>次左右，经常会出现几百道选择题的情况，感觉老师不是很挑题目。虽然因为这个被同学们诟病很久了，但是<strong>期末考试会考</strong>这类题目，而且很大概率是李际军出题，这些题目基本在网上都能搜到解答，其实就当题库做就好。</p>
+<p>大作业：用<span class="heti-skip"><span class="heti-spacing"> </span>OpenGL<span class="heti-spacing"> </span></span>实现一个项目，<span>21<span class="heti-spacing"> </span></span>级是几何画板，<span>22<span class="heti-spacing"> </span></span>级是实现<span class="heti-skip"><span class="heti-spacing"> </span>libigl<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>tutorial<span class="heti-spacing"> </span></span>里的三个基本功能（三维建模、读入读出文件等），工作量巨大，可以试一试找网上的代码。大作业在<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>上交并且互评，千万不要不交，李际军不支持补交，不能出现姓名但可以出现学号。一个雷点是互评基本无法申诉，且容易被反噬扣分：总是会有不完成<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>一看就是随便找来的代码上交的，这些很难打出一个统一的分数，大作业的最后得分应该是<span class="heti-skip"><span class="heti-spacing"> </span>project<span class="heti-spacing"> </span></span>得分<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>反噬扣分<span><span class="heti-spacing"> </span>/2</span>。</p>
+<p>考试：全英文考试，非常八股文，包含选择题、程序填空题、函数题，不过他的<span class="heti-skip"><span class="heti-spacing"> </span>ppt<span class="heti-spacing"> </span></span>很全，考前过一遍就差不多了。很阴间的一个点是函数题的答题框不支持<span class="heti-skip"><span class="heti-spacing"> </span>tab<span class="heti-spacing"> </span></span>和自动补全等功能，甚至不如记事本，但是可以用<span class="heti-skip"><span class="heti-spacing"> </span>markdown<span class="heti-spacing"> </span></span>渲染显示高亮（我考试的时候甚至打不出英文标点，老师助教过来看半天没解决，最后我用了复制粘贴。<heti-adjacent class="heti-adjacent-half">。</heti-adjacent><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>总结：虽然大作业确实阴间<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>”百题斩“ 写起来也很头大，但是平时作业当题库写就行，最后期末考前还会有同学来找<span class="heti-skip"><span class="heti-spacing"> </span>ljj<span class="heti-spacing"> </span></span>的题目刷，最后给分也还不错。老师不好说话，所以尽量不要出现错过点到、作业超时等情况，在钉钉大群发言也要注意。另外老师上课有点大舌头听不清，但是可以看<span class="heti-skip"><span class="heti-spacing"> </span>ppt<span class="heti-spacing"> </span></span>学，<span>ppt<span class="heti-spacing"> </span></span>很全，而且他在第一节课就会放上所有的<span><span class="heti-spacing"> </span>ppt</span>，这一点还挺好的、、</p>
+</div>
+<div class="tabbed-block">
+<p>许威威老师的<span class="heti-skip"><span class="heti-spacing"> </span>NA<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>OOP<span class="heti-spacing"> </span></span>不能一概而论，虽然很多人选择，但上课的实际效果并不如<span class="heti-skip"><span class="heti-spacing"> </span>cx<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>wk<span class="heti-spacing"> </span></span>老师，<span>ppt<span class="heti-spacing"> </span></span>上的东西也常让人一头雾水。松散的平时容易让期末前往火葬场。</p>
+<p>考勤：<del>许威威似乎只会拿名单点名，</del>在<span class="heti-skip"><span class="heti-spacing"> </span>24<span class="heti-spacing"> </span></span>春夏上课时由于人数过多实际上没有进行点名，<span>24-25<span class="heti-spacing"> </span></span>春夏学期点了一次。</p>
+<p>大许老师的讲课真的很一般，感觉基本没有人在听，建议转向<span class="heti-skip"><span class="heti-spacing"> </span>wk<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>cx<span class="heti-spacing"> </span></span>的智云课堂。相比于这两个班的好处是平时作业少，没有<span class="heti-skip"><span class="heti-spacing"> </span>wk<span class="heti-spacing"> </span></span>老师的期中考和繁杂的平时作业。对于平时分主要的雷点在于通知不到位，基本都是课堂上的口头通知以及最后才出来的<span class="heti-skip"><span class="heti-spacing"> </span>penalty<span class="heti-spacing"> </span></span>政策。单就给分而言，<span>24<span class="heti-spacing"> </span></span>春夏助教对平时分还是比较慷慨的，大概有<span class="heti-skip"><span class="heti-spacing"> </span>1/4<span class="heti-spacing"> </span></span>的人可以拿到平时满分，只有在<span class="heti-skip"><span class="heti-spacing"> </span>project<span class="heti-spacing"> </span></span>代码不规范以及边界情况不正确时才会获得<span class="heti-skip"><span class="heti-spacing"> </span>(-1)<span class="heti-spacing"> </span></span>的扣分。</p>
+</div>
+</div>
+</div>
+<h2 id="_5">分数构成<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">翁恺</label><label for="__tabbed_2_2">陈翔</label><label for="__tabbed_2_3">许威威</label><label for="__tabbed_2_4">李际军</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1"><span>20<span class="heti-spacing"> </span></span>级</label><label for="__tabbed_3_2"><span class="heti-skip"><span class="heti-spacing"> </span>21<span class="heti-spacing"> </span></span>级</label><label for="__tabbed_3_3"><span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>级</label><label for="__tabbed_3_4"><span class="heti-skip"><span class="heti-spacing"> </span>23<span class="heti-spacing"> </span></span>级</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>quiz 5%</li>
+<li>Homework 10%</li>
+<li>七个<span><span class="heti-spacing"> </span>Labs</span>（一次上机期中考试） 15%</li>
+<li>一个大<span><span class="heti-spacing"> </span>Project 15% team work</span>（<span>2<span class="heti-spacing"> </span></span>人一组）<ul>
+<li><span>MUD<span class="heti-spacing"> </span></span>游戏</li>
+<li>日记本</li>
+<li>也可以是自己的题目</li>
+<li>每个月都要上交进度报告，进度报告一般给<span><span class="heti-spacing"> </span>100</span>，结题报告按实际情况给分，四次报告取平均</li>
+</ul>
+</li>
+<li>期中<span><span class="heti-spacing"> </span>5%</span></li>
+<li>期末<span><span class="heti-spacing"> </span>50%</span></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>quiz 5%（<span>on<span class="heti-spacing"> </span></span>学在浙大<span><span class="heti-spacing"> </span>or paper work</span>）</li>
+<li>Homework 16%（一周一个习题集，前两周不算分，最后计算所有题目集总分）</li>
+<li>8 Lab/Project 24%（每个<span class="heti-skip"><span class="heti-spacing"> </span>project 3<span class="heti-spacing"> </span></span>分）</li>
+<li>期中<span><span class="heti-spacing"> </span>5%</span>（90min，在实验课进行）</li>
+<li>期末<span><span class="heti-spacing"> </span>50%</span></li>
+</ul>
+<p>除此之外还会有补分集（<span>20<span class="heti-spacing"> </span></span>级<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分，<span>21<span class="heti-spacing"> </span></span>级由于期中考过难有<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分），很多同学的平时分都是满分。</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Attendance 1%</li>
+<li>In-class quiz: 8%（从第三周起几乎每节课都有课前小测，在<span class="heti-skip"><span class="heti-spacing"> </span>pta<span class="heti-spacing"> </span></span>上有数道选择题，巩固上周知识）</li>
+<li>Homework 16%</li>
+<li>Labs: 12%（总共<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>次）</li>
+<li>Project: 8%（总共<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>次）</li>
+<li>期中<span><span class="heti-spacing"> </span>5%</span>（90min，在实验课进行）</li>
+<li>期末<span><span class="heti-spacing"> </span>50%</span></li>
+</ul>
+<p>除此之外依然有补分集。需要注意的是期中考试的难度可能会比较高，或者说“超纲”，比如<span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>级期中就已经考了之后几周才会学到的多态、运算符重载等等（<del>还有大翁最喜欢的 <code>static_cast</code></del><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。所以如果实在想要考好一点，可以把<span class="heti-skip"><span class="heti-spacing"> </span>OOP<span class="heti-spacing"> </span></span>这门课程的整体知识点过一遍，并掌握住最核心的部分，要相信期中考题目的知识点基本都是传统的，用于巩固或理解。</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>In-class performance 5%（从第三周起几乎每节课都有课前小测，在学在浙大“互动”上有数道选择题，巩固上周知识）</li>
+<li>Assignment 16%（本学期共<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>次作业，在<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>上）</li>
+<li>8 Lab/Project 24%（其实还是<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>Lab + 2<span class="heti-spacing"> </span></span>个<span><span class="heti-spacing"> </span>Project</span>）</li>
+<li>期中<span><span class="heti-spacing"> </span>5%</span>（90min，在实验课进行，不过本学期是线上考试）</li>
+<li>期末<span><span class="heti-spacing"> </span>50%</span></li>
+</ul>
+<p>除此之外依然有补分集。补分集规则为（原文摘抄）：本题目集只适用于存在作业、实验或期中考试零分的学生，本题目集的满分可以替代一次零分的作业、实验或期中考试。当存在作业、实验和期中考试均有零分时，用于替代三者分值最高的一项。不存在零分的作业、实验或期中考试的同学，做了本题目集，不会对分数有任何的影响。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1"><span>22<span class="heti-spacing"> </span></span>级</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>平时作业<span><span class="heti-spacing"> </span>50%</span>，具体比例不详，可能是按照<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>上的作业分数来计算</li>
+<li>期末考试<span><span class="heti-spacing"> </span>50%</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1"><span>22<span class="heti-spacing"> </span></span>级<span class="heti-skip"><span class="heti-spacing"> </span>&amp; 23<span class="heti-spacing"> </span></span>级</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>
+<p>平时<span><span class="heti-spacing"> </span>project 50%</span></p>
+<ul>
+<li>
+<p>平时作业：在<span class="heti-skip"><span class="heti-spacing"> </span>pta<span class="heti-spacing"> </span></span>上布置的题目，由人工批改，因此对题目中说的要求一定要认真阅读，写注释，写注释，写注释。</p>
+<p><span>xww<span class="heti-spacing"> </span></span>的平时作业并不友好，而且要求也很怪，诸如文件流关闭、写注释等细枝末节扣的很迷惑，助教也不甚给力，后半学期批作业毫无进度，有同学错过了<span class="heti-skip"><span class="heti-spacing"> </span>ddl<span class="heti-spacing"> </span></span>而导致了扣分。</p>
+<ul>
+<li><span>student 1 &amp; 2:<span class="heti-spacing"> </span></span>主要考察文件读写输入输出等操作，注意一定要和要求的输出格式<em>一模一样</em></li>
+<li><span>adventure:<span class="heti-spacing"> </span></span>要求是<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>维的随机迷宫，注意要确保有到公主房间的可行路径</li>
+<li><span>personal diary:<span class="heti-spacing"> </span></span>这个是彻底的依托，竟然强制要求重定向而不允许文件输入输出，导致传入参数很困难，老师的说明也含混不清，同学们问了很多次又改为允许重载输入函数让有限的操作可以读文件</li>
+<li><span>fraction:<span class="heti-spacing"> </span></span>注意分数的初始化，<span>0<span class="heti-spacing"> </span></span>分母检测（好像要求不能<span class="heti-skip"><span class="heti-spacing"> </span>throw<span class="heti-spacing"> </span></span>还是什么的，总之有特殊要求，注意负数！！<heti-adjacent class="heti-adjacent-half">！</heti-adjacent>）</li>
+<li><span>vector:<span class="heti-spacing"> </span></span>中规中矩的<span><span class="heti-spacing"> </span>project</span></li>
+<li>大作业：allocator &amp; memory pool，要求在给定内存大小的情况下尽量快的完成功能，但是具体给多大内存不知道，并且要执行的操作也不清楚，速度要求似乎与<span class="heti-skip"><span class="heti-spacing"> </span>oop<span class="heti-spacing"> </span></span>背道而驰。老师发出的测试程序也存在一定错误，需要自己阅读修改。<ul>
+<li>给分规则（<span>100<span class="heti-spacing"> </span></span>分制）：功能完成，测试程序通过，得到基础评分<span class="heti-skip"><span class="heti-spacing"> </span>88<span class="heti-spacing"> </span></span>分。剩下<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>分按速度排名给分：前<span class="heti-skip"><span class="heti-spacing"> </span>1/3<span class="heti-spacing"> </span></span>得到<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>分，后<span class="heti-skip"><span class="heti-spacing"> </span>2/3<span class="heti-spacing"> </span></span>按排名线性分配<span class="heti-skip"><span class="heti-spacing"> </span>12~0<span class="heti-spacing"> </span></span>分，四舍五入。</li>
+</ul>
+</li>
+</ul>
+<p>另外<span class="heti-skip"><span class="heti-spacing"> </span>xww<span class="heti-spacing"> </span></span>似乎不是很喜欢发书面的通知，<span>24<span class="heti-spacing"> </span></span>春夏的几次作业<span class="heti-skip"><span class="heti-spacing"> </span>ddl<span class="heti-spacing"> </span></span>都是课上口头通知，通常来讲是<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>周一个作业，但是自从某次延期<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>周之后就含混不清了，直到期末考结束才说明迟交<span><span class="heti-spacing"> </span>penalty</span>，扣的也比较狠，但是大作业的<span class="heti-skip"><span class="heti-spacing"> </span>ddl<span class="heti-spacing"> </span></span>还是放宽到了考试的前一晚。</p>
+<p>由于<span class="heti-skip"><span class="heti-spacing"> </span>xww<span class="heti-spacing"> </span></span>的平时作业不包含理论题，如果平时不常去听课的话，期末考的选择<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>填空可能会发懵</p>
+</li>
+</ul>
+</li>
+<li>
+<p>期末<span><span class="heti-spacing"> </span>50%</span>
+    课程组统一的期末考试。<!-- 期末主观题的给分还挺好 --></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1"><span>22<span class="heti-spacing"> </span></span>级</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>平时<span><span class="heti-spacing"> </span>50%</span><ul>
+<li>考勤<span><span class="heti-spacing"> </span>5%</span></li>
+<li><span>PTA<span class="heti-spacing"> </span></span>作业<span><span class="heti-spacing"> </span>30%</span></li>
+<li>大作业<span><span class="heti-spacing"> </span>15%</span></li>
+</ul>
+</li>
+<li>期末考试<span><span class="heti-spacing"> </span>50%</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>题外话，<span>ljj<span class="heti-spacing"> </span></span>的中文<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>质量极佳，逻辑清晰<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>理论部分简明扼要<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>例子鲜明易懂，非常适合期末补天用（个人感觉强于<span class="heti-skip"><span class="heti-spacing"> </span>xww<span class="heti-spacing"> </span></span>的）</p>
+</div>
+</div>
+</div>
+<h2 id="_6">课程教材<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li>
+<p><em>《<span>C++<span class="heti-spacing"> </span></span>程序设计》Intruduction to Programming with C++ (Third Edition)</em> <span>[<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Y. Daniel Liang</span>（梁勇）</p>
+<p>课程组指定教材，<del>但没有什么用处</del>比较基础、简单易懂</p>
+</li>
+<li>
+<p><em>《<span>C++<span class="heti-spacing"> </span></span>编程思想》Thinking in C++</em> <span>[<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Bruce Eckel</span></p>
+<p>一本比较经典的<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>教材，作者<span class="heti-skip"><span class="heti-spacing"> </span>Bruce Eckel<span class="heti-spacing"> </span></span>是著名的编程教育家。翁恺老师的大部分课件都是按照这本书内容编排。当然这本书有很多考试不考察的内容，如果时间不够可以只看老师<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>涉及内容对应的部分。</p>
+</li>
+</ul>
+<h2 id="_7">参考阅读<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>读万卷书，行万里路。</p>
+<ul>
+<li>
+<p><em>C++ Primer</em> <span>(5th edition), [<span class="heti-spacing"> </span></span>美<span class="heti-skip"><span class="heti-spacing"> </span>] Stanley B. Lippman / [<span class="heti-spacing"> </span></span>美<span class="heti-skip"><span class="heti-spacing"> </span>] Josée Lajoie / [<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Barbara E. Moo</span></p>
+<p>经典<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>教材，有十分详尽的语法讲解。不过整本书看起来像是语法字典，可能并不容易读，建议用到某一特性再去找。第五版教材包括了<span class="heti-skip"><span class="heti-spacing"> </span>C++11<span class="heti-spacing"> </span></span>标准。</p>
+</li>
+<li>
+<p><em>C++ Primer Plus</em> (6th edition)，<span>[<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Stephen Prata</span></p>
+<p>傻瓜式的、从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始的<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>教材，有人觉得很面面俱到，个人觉得啰里啰嗦。</p>
+</li>
+<li>
+<p><em>Essential C++</em><span>, [<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Stanley B·Lippman</span></p>
+<p>比较基础，分四个部分讲解<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>的本质，也可以用作入门读物。比较老了，只到<span class="heti-skip"><span class="heti-spacing"> </span>C++98<span class="heti-spacing"> </span></span>标准。</p>
+</li>
+<li>
+<p><span>C++<span class="heti-spacing"> </span></span>之父<span class="heti-skip"><span class="heti-spacing"> </span>Bjanre Stroustrup<span class="heti-spacing"> </span></span>的几本书：</p>
+<ul>
+<li>
+<p><a href="https://www.stroustrup.com/programming.html"><em>Programming: Principles and Practice using C++</em></a><heti-adjacent class="heti-adjacent-half">（</heti-adjacent>《<span>C++<span class="heti-spacing"> </span></span>程序设计原理与实践》）</p>
+<p>“适合以前没有编程经验或者已经学完另一种语言，并且希望对现代<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>有一个相对温和的介绍的人”，<span>BS<span class="heti-spacing"> </span></span>给大一学生写的教材。覆盖<span class="heti-skip"><span class="heti-spacing"> </span>C++11<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>C++14<span class="heti-spacing"> </span></span>标准。</p>
+</li>
+<li>
+<p><a href="https://www.stroustrup.com/4th.html"><em>The C++ Programming Language</em> (4th edition)</a><heti-adjacent class="heti-adjacent-half">（</heti-adjacent>《<span>C++<span class="heti-spacing"> </span></span>程序设计语言》）</p>
+<p>“面向已经了解<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>或至少是经验丰富的程序员的人”。覆盖<span class="heti-skip"><span class="heti-spacing"> </span>C++11<span class="heti-spacing"> </span></span>标准。</p>
+</li>
+<li>
+<p>如果你想了解<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>的历史，请看 <a href="https://www.stroustrup.com/dne.html"><em>The Design and Evolution of C++</em></a><heti-adjacent class="heti-adjacent-half">（</heti-adjacent>《<span>C++<span class="heti-spacing"> </span></span>语言的设计与演化》）。<a href="https://dl.acm.org/doi/pdf/10.1145/3386320"><em>Thriving in a Crowded and Changing World: C++ 2006-2020</em></a> 可以被视为<span class="heti-skip"><span class="heti-spacing"> </span>D&amp;E<span class="heti-spacing"> </span></span>的最新后续。</p>
+</li>
+<li>
+<p><a href="https://www.stroustrup.com/tour2.html"><em>A Tour of C++</em> (second edition)</a><heti-adjacent class="heti-adjacent-half">（</heti-adjacent>《<span>C++<span class="heti-spacing"> </span></span>语言导学》）</p>
+<p>适合去快速了解<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>所提供的功能。这本书以<span class="heti-skip"><span class="heti-spacing"> </span>200<span class="heti-spacing"> </span></span>页的篇幅介绍了<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>及其标准库的主要特性，且覆盖<span class="heti-skip"><span class="heti-spacing"> </span>C++17<span class="heti-spacing"> </span></span>标准（及少量<span class="heti-skip"><span class="heti-spacing"> </span>C++20<span class="heti-spacing"> </span></span>标准），对于了解新标准特性也不错。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>关于<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>STL</span>（标准模板库），想要了解其内部实现细节，可参考侯捷老师《<span>STL<span class="heti-spacing"> </span></span>源码剖析》，但侯捷老师这本书不适合初学者，而且标准比较老，后面几章有些已经用不上了。另外也可以看<span><span class="heti-spacing"> </span>Scott Meyers,</span> <em>Effective STL</em>。</p>
+</li>
+<li>
+<p><em>Effective C++</em><span>, [<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Scott Meyers</span></p>
+<p>讲解一些实际套路和原理，结合具体情况教你如何写程序，写了很多<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>各种容易踩坑的点。有些很有帮助，后面有些可能有点难。这本书还有后作 <em>More Effective C++</em>，更高深了（×。两本书都只涉及<span class="heti-skip"><span class="heti-spacing"> </span>C++98/03<span class="heti-spacing"> </span></span>标准，少量内容有些过时。</p>
+</li>
+<li>
+<p><em>C++ Without Fear</em>, Brian Overland</p>
+<p>比较老（指<span class="heti-skip"><span class="heti-spacing"> </span>C++98<span class="heti-spacing"> </span></span>标准）的入门书籍。</p>
+</li>
+<li>
+<p><em>Functional Programming in C++</em>, Ivan Cukic</p>
+<p>（给老司机们）了解<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>函数式编程</p>
+</li>
+<li>
+<p>（给老司机们）进一步探索现代<span><span class="heti-spacing"> </span>C++</span>：</p>
+<ul>
+<li>
+<p><em>Modern Effective C++</em><span>, [<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Scott Meyers</span></p>
+<p>教你怎么用<span class="heti-skip"><span class="heti-spacing"> </span>C++11<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>C++14</span>，既有语法也有实例讲解，带你走向现代<span><span class="heti-spacing"> </span>C++</span>。后面有点难。</p>
+</li>
+<li>
+<p><a href="https://github.com/changkun/modern-cpp-tutorial">《现代<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>快速上手<span><span class="heti-spacing"> </span>(Modern C++ Tutoral)</span>》</a>》，Ou Changkun，字面意思，快速上手。</p>
+</li>
+<li>
+<p><em>C++ Templates</em> (2nd edition)，<span>[<span class="heti-spacing"> </span></span>美<span class="heti-skip"><span class="heti-spacing"> </span>] David Vandevoorde / [<span class="heti-spacing"> </span></span>德<span class="heti-skip"><span class="heti-spacing"> </span>] Nicolai M.Josuttis / [<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Douglas Gregor</span></p>
+<p>深入了解模板<del>的奇技淫巧</del>。</p>
+</li>
+<li>
+<p>其他，如<heti-adjacent class="heti-adjacent-half">：</heti-adjacent>《深入探索<span><span class="heti-spacing"> </span>C++14</span>（Discovering Modern C++)》《现代<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>语言核心特性解析》《<span>C++20<span class="heti-spacing"> </span></span>高级编程》等</p>
+</li>
+</ul>
+</li>
+<li>
+<p>可参考<a href="https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list"><span><span class="heti-spacing"> </span>The Definitive C++ Book Guide and List</span></a>，<span>Stack Overflow<span class="heti-spacing"> </span></span>上整理的书单。也可以逛逛<a href="https://www.quora.com/What-is-the-best-C-book-for-a-beginner"><span><span class="heti-spacing"> </span>Quora</span></a>。</p>
+</li>
+<li><span>C++<span class="heti-spacing"> </span></span>之父<span class="heti-skip"><span class="heti-spacing"> </span>Bjanre Stroustrup<span class="heti-spacing"> </span></span>的<a href="https://www.stroustrup.com/bs_faq.html"><span class="heti-skip"><span class="heti-spacing"> </span>FAQ<span class="heti-spacing"> </span></span></a>很有意思，值得一看！此外他还有<a href="https://www.stroustrup.com/bs_faq2.html"><span><span class="heti-spacing"> </span>C++ Style and Technique FAQ</span></a> 。十分建议大大多逛逛<a href="https://www.stroustrup.com"><span class="heti-skip"><span class="heti-spacing"> </span>BS<span class="heti-spacing"> </span></span>的主页</a>。</li>
+</ul>
+<!-- * 一些 C++ 书籍的**电子版资源**：https://www.aliyundrive.com/s/z5hLRAELpPP -->
+<!-- 这里资源已经远不止 C++ 了, 故在此删除 -->
+<h2 id="_8">参考资料<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li><span>RyanFcr<span class="heti-spacing"> </span></span>整理的笔记和历年卷：<a href="https://github.com/RyanFcr/ZJU_Course/tree/main/%E5%A4%A7%E4%BA%8C%E6%98%A5%E5%A4%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1OOP"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span> <span>RyanFcr/ZJU_Course:<span class="heti-spacing"> </span></span>大二春夏<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>面向对象程序设计<span><span class="heti-spacing"> </span>OOP</span></a></li>
+<li><span>Stanford CS106L<span class="heti-spacing"> </span></span>课程：<a href="https://www.cc98.org/topic/5401931">https://www.cc98.org/topic/5401931</a></li>
+<li>贺老师的专栏：<a href="https://www.zhihu.com/column/c_1561843704159232000">https://www.zhihu.com/column/c_1561843704159232000</a></li>
+<li><span>Isshiki<span class="heti-spacing"> </span></span>的课堂笔记：<a href="https://www.yuque.com/isshikixiu/codes/wk_oop">📔 <span>[<span class="heti-spacing"> </span></span>大一寒假<span><span class="heti-spacing"> </span>] ZJU Object-Oriented Programing Using C++ (yuque.com)</span></a></li>
+<li>咸鱼暄学长的<a href="https://www.yuque.com/xianyuxuan/saltfish_shop/weekly017"><span class="heti-skip"><span class="heti-spacing"> </span>C++ Weekly Tips<span class="heti-spacing"> </span></span></a>和<a href="https://xuan-insr.github.io/cpp/cpp_for_contests/">快速入门<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>写题</a></li>
+</ul>
+<p>期末复习可以参考这个<a href="https://github.com/RyanFcr/ZJU_Course/tree/main/%E5%A4%A7%E4%BA%8C%E6%98%A5%E5%A4%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1OOP">课程资料仓库</a>。这门课期末考试不是很友好，除了之前说的大纲不确定外，部分老师命题水平实在有限，也有部分老师出题审核不严格出现漏洞。另外，<span>C++<span class="heti-spacing"> </span></span>语言本身就很复杂，而且考试可能会考到一些很细的语言特性，可能需要平时多注意。</p>
+<p>并且自从<span class="heti-skip"><span class="heti-spacing"> </span>2019<span class="heti-spacing"> </span></span>级春夏出现大量编译错误后人工批阅的情况后，接下来的学期都采取主观题形式写代码（也是写在<span><span class="heti-spacing"> </span>PTA</span>），然后由老师人工批阅。个人认为平常写代码是认真写的，然后特别注意部分地方的语法（例如<span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span>等）分数都不会差。当然不得不承认的一点是，数据库系统大作业<span class="heti-skip"><span class="heti-spacing"> </span>minisql<span class="heti-spacing"> </span></span>是一个复习<span class="heti-skip"><span class="heti-spacing"> </span>oop<span class="heti-spacing"> </span></span>的很好的练习。</p>
+<hr/>
+<style>
+#footer-wrapper {
+    white-space: nowrap;
+}
+#footer-wrapper > p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -10px;
+}
+#footer-wrapper > p > .twemoji > svg {
+    max-width: none;
+}
+.contributors {
+    min-width: 30px;
+    line-height: 0;
+    white-space: normal;
+    width: 100%;
+}
+.contributors > a {
+    margin-right: -8px;
+}
+.contributors > a > img {
+    width: 30px;
+    border-radius: 15px;
+}
+</style>
+<div id="footer-wrapper">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg></span> 2025-06-27  <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></span> Contributors <span class="contributors"><a href="https://github.com/TonyCrane" target="_blank" title="TonyCrane"><img alt="TonyCrane" src="https://avatars.githubusercontent.com/u/44120331"/></a><a href="https://github.com/GoldfishHorse" target="_blank" title="GoldfishHorse"><img alt="GoldfishHorse" src="https://avatars.githubusercontent.com/u/104991291"/></a><a href="https://github.com/ZhouTimeMachine" target="_blank" title="ZhouTimeMachine"><img alt="ZhouTimeMachine" src="https://avatars.githubusercontent.com/u/99057383"/></a><a href="https://github.com/45gfg9" target="_blank" title="45gfg9"><img alt="45gfg9" src="https://avatars.githubusercontent.com/u/37043529"/></a><a href="https://github.com/yhwu-is" target="_blank" title="yhwu-is"><img alt="yhwu-is" src="https://avatars.githubusercontent.com/u/80104150"/></a><a href="https://github.com/NoughtQ" target="_blank" title="NoughtQ"><img alt="NoughtQ" src="https://avatars.githubusercontent.com/u/88835299"/></a><a href="https://github.com/RyanFcr" target="_blank" title="RyanFcr"><img alt="RyanFcr" src="https://avatars.githubusercontent.com/u/97524892"/></a><a href="https://github.com/shrike-505" target="_blank" title="shrike-505"><img alt="shrike-505" src="https://avatars.githubusercontent.com/u/146426306"/></a><a href="https://github.com/626lt" target="_blank" title="626lt"><img alt="626lt" src="https://avatars.githubusercontent.com/u/129494413"/></a><a href="https://github.com/DaViD-Pigeon" target="_blank" title="DaViD-Pigeon"><img alt="DaViD-Pigeon" src="https://avatars.githubusercontent.com/u/117525184"/></a><a href="https://github.com/AnyaReese" target="_blank" title="AnyaReese"><img alt="AnyaReese" src="https://avatars.githubusercontent.com/u/112845902"/></a><a href="https://github.com/Williamdepig" target="_blank" title="Williamdepig"><img alt="Williamdepig" src="https://avatars.githubusercontent.com/u/111695841"/></a></span></p>
+</div>
+<style>
+.md-content .admonition:first-of-type {
+    display: none;
+    margin-top: 0;
+}
+</style>
+<script>
+(() => {
+    let banner = document.querySelector(".md-content .admonition:first-of-type");
+    let child = banner.children[0];
+    let time_updated = new Date(child.innerText * 1000);
+    let time_current = new Date();
+    let diff_month = (time_current - time_updated) / 1000 / 60 / 60 / 24 / 30;
+    if (diff_month > 12.000000) {
+        banner.style.display = "flow-root";
+        child.innerHTML = "本页面最后更新于 " + Math.round(diff_month) + " 个月前，内容可能已经过时，请注意鉴别";
+    }
+})();
+</script>
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOIw_0vs4CTjmC" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="pathname" data-reactions-enabled="1" data-repo="ZJU-Turing/TuringCourses" data-repo-id="R_kgDOIw_0vg" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
+</script>
+<script>
+    if (document.querySelector("body").getAttribute("data-md-color-scheme") === "slate") {
+      var giscus = document.querySelector("script[src*=giscus]")
+      giscus.setAttribute("data-theme", "https://gcore.jsdelivr.net/gh/TonyCrane/note/docs/css/giscus.css") 
+    }
+  </script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+              回到页面顶部
+            </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 计算机组成与设计" class="md-footer__link md-footer__link--prev" href="../computer_organization/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  上一页
+                </span>
+                计算机组成与设计
+              </div>
+</div>
+</a>
+<a aria-label="下一页: 理论计算机科学导引" class="md-footer__link md-footer__link--next" href="../theory_of_computation/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  下一页
+                </span>
+                理论计算机科学导引
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2023-2024 浙江大学图灵班
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.action.edit", "navigation.tracking", "navigation.top", "navigation.tabs", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../js/katex.js"></script>
+</body>
+</html>

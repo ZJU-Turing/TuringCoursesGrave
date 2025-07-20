@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="图灵班学习指南" name="description"/>
+<link href="https://ZJU-Turing.github.io/TuringCourses/major_basic/convex_optimization/" rel="canonical"/>
+<link href="../theory_of_computation/" rel="prev"/>
+<link href="../operating_system/" rel="next"/>
+<link href="../../images/icon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>优化基本理论与方法 - 图灵班学习指南</title>
+<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<link href="../../css/tasklist.css" rel="stylesheet"/>
+<link href="../../css/card.css" rel="stylesheet"/>
+<link href="../../css/custom.css" rel="stylesheet"/>
+<link href="../../css/counter.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script src="../../js/scheme.js" type="text/javascript"></script>
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+            跳转至
+          </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="图灵班学习指南" class="md-header__button md-logo" data-md-component="logo" href="../.." title="图灵班学习指南">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            图灵班学习指南
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              优化基本理论与方法
+            
+          </span>
+</div>
+</div>
+</div>
+<div class="md-header__options">
+<div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+<a class="light-mode" href="javascript:toggleScheme();" title="Light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</a>
+<a class="dark-mode" href="javascript:toggleScheme();" title="Dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</a>
+<a class="system-mode" href="javascript:toggleScheme();" title="System preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
+</a>
+<a class="unknown-mode" href="javascript:toggleScheme();" title="Unknown scheme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10Z"></path></svg>
+</a>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ZJU-Turing/TuringCourses/" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ZJU-Turing/TuringCourses
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        主页
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../political/">
+        思政军体课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../general/">
+        通识选修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../math_phys/">
+        数理基础课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        专业基础课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_mandatory/">
+        专业必修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_module/">
+        专业模块课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_elective/">
+        专业选修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../short_term/">
+        短学期课程
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../others/">
+        跨专业课程
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../readings/">
+        书评专区
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="图灵班学习指南" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="图灵班学习指南">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"></path></svg>
+</a>
+    图灵班学习指南
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ZJU-Turing/TuringCourses/" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ZJU-Turing/TuringCourses
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">主页</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="主页" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../contributing/">
+        贡献指南
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../template/">
+        课程页面模板
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../changelog/">
+        更新历史
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../political/">思政军体课</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="思政军体课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          思政军体课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/situation_policy1/">
+        形势与政策 Ⅰ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/morality_law/">
+        思想道德与法治
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/modern_history/">
+        中国近现代史纲要（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/marxism_basic/">
+        马克思主义基本原理（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/mao_thought/">
+        毛泽东思想和中国特色社会主义理论体系概论（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/xi_thought/">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/situation_policy2/">
+        形势与政策 Ⅱ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/military_theory/">
+        军事理论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../general/">通识选修课</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="通识选修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          通识选修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/core/">
+        通识核心课
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/elective/">
+        通识选修课
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/others/">
+        其他选修课
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math_phys/">数理基础课</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="数理基础课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          数理基础课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/linear_algebra1/">
+        线性代数 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/linear_algebra2/">
+        线性代数 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/math_analysis1/">
+        数学分析（甲）Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/math_analysis2/">
+        数学分析（甲）Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics1/">
+        普通物理学 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics2/">
+        普通物理学 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics_experiment1/">
+        普通物理学实验 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics_experiment2/">
+        普通物理学实验 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/probability/">
+        概率论（H）
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">专业基础课</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业基础课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          专业基础课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../programming/">
+        程序设计与算法基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cyberspace_security/">
+        网络空间安全导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../discrete_math/">
+        离散数学理论基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ai_basic/">
+        人工智能引论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data_structure/">
+        数据结构基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_data_structure/">
+        高级数据结构与算法分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logic_design/">
+        计算机逻辑设计基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_organization/">
+        计算机组成与设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object_oriented_programming/">
+        面向对象程序设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../theory_of_computation/">
+        理论计算机科学导引
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          优化基本理论与方法
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        优化基本理论与方法
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    课程学习内容
+  </a>
+<nav aria-label="课程学习内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    先修要求
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    课程教材
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    分数构成
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    任课教师
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    参考资料
+  </a>
+<nav aria-label="参考资料" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    书籍
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    课程
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    笔记
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    学习建议
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../operating_system/">
+        操作系统原理与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_system1/">
+        计算机系统 Ⅰ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_system2/">
+        计算机系统 Ⅱ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../computer_system3/">
+        计算机系统 Ⅲ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_mandatory/">专业必修课</a>
+<label for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业必修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          专业必修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/database/">
+        数据库系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_networks/">
+        计算机网络
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_architecture/">
+        计算机体系结构
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/software_engineering/">
+        软件工程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/compilers_principles/">
+        编译原理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/cognitive_neuroscience/">
+        认知神经科学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/machine_learning/">
+        机器学习
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_ethics_security/">
+        人工智能伦理与安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_practice/">
+        人工智能实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_vision/">
+        计算机视觉导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/design_cognition/">
+        设计认知与设计智能
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_chips_systems/">
+        人工智能芯片与系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/natural_language_processing/">
+        自然语言处理导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/assemble/">
+        汇编语言
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/cryptography/">
+        密码学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/data_security/">
+        数据安全与隐私保护
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/software_security/">
+        软件安全原理和实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/network_security/">
+        网络安全原理与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_security/">
+        人工智能安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/wireless_iot_security/">
+        无线与物理网安全基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/system_security/">
+        系统安全原理和实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_module/">专业模块课</a>
+<label for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业模块课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          专业模块课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/numerical_analysis/">
+        数值分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/applied_operations_research/">
+        应用运筹学基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/principle_of_programming_languages/">
+        编程语言原理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/history_of_cs_ideas/">
+        计算机科学思想史
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/data_mining/">
+        数据挖掘导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/assembly_interface/">
+        汇编与接口
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/embedded_system/">
+        嵌入式系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/parallel_computing/">
+        并行计算与多核编程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/system_comprehensive_practice/">
+        计算机系统综合实现
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/distributed_computing/">
+        分布式计算
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/big_data_storage/">
+        大数据存储与计算技术
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_elective/">专业选修课</a>
+<label for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业选修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          专业选修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/technology_communication/">
+        技术沟通
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/digital_image_processing/">
+        图像信息处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/signal_processing_for_cybersecurity/">
+        面向信息安全的信号处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/brain_inspired_ai/">
+        脑启发人工智能导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/ai_logic/">
+        人工智能逻辑
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computational_photography/">
+        计算摄影学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computer_vision/">
+        计算机视觉
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/introduction_to_data_visualization/">
+        数据可视化导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/special_discussion/">
+        专题研讨
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/social_network_security/">
+        社交网络安全与隐私
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/quantum_computing/">
+        量子计算理论基础与软件系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/multimedia_security/">
+        多媒体安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computer_graphics/">
+        计算机图形学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/intelligent_acquisition_of_visual_information/">
+        智能视觉信息采集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/research_advances_in_computer_graphics/">
+        计算机图形学研究进展
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">短学期课程</a>
+<label for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="短学期课程" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          短学期课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" id="__nav_9_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">固定课程</a>
+<label for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="固定课程" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+          固定课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ics/">
+        计算机系统概论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ai_practice/">
+        人工智能实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" id="__nav_9_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">课程综合实践 Ⅰ</a>
+<label for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="课程综合实践 Ⅰ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+          课程综合实践 Ⅰ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/hpc/">
+        超算实训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/acm/">
+        算法竞赛集训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ctf/">
+        安全攻防实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/data_visualization/">
+        大数据可视化
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" id="__nav_9_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">课程综合实践 Ⅱ</a>
+<label for="__nav_9_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="课程综合实践 Ⅱ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_4">
+<span class="md-nav__icon md-icon"></span>
+          课程综合实践 Ⅱ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/cpp_project/">
+        C++ 项目管理及工程实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/rust/">
+        Rust 开发实训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/llm_practice/">
+        大模型应用与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/data_market/">
+        数据要素市场概论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../others/">跨专业课程</a>
+<label for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="跨专业课程" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          跨专业课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/ode/">
+        常微分方程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/numerical_linear_algebra/">
+        数值代数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/data_modeling_and_analysis/">
+        数据建模与分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/abstract_algebra/">
+        抽象代数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/number_theory/">
+        数论导引
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/stochastic_process/">
+        随机过程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/point_set_topology/">
+        点集拓扑
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/economics/">
+        经济学类课程集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/finance/">
+        金融学类课程集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/browser_server_software/">
+        B/S 体系软件设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/electronic_engineering_training/">
+        电子工程训练
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/introduction_to_psychology/">
+        心理学导论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../readings/">书评专区</a>
+</div>
+<nav aria-label="书评专区" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          书评专区
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    课程学习内容
+  </a>
+<nav aria-label="课程学习内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    先修要求
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    课程教材
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    分数构成
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    任课教师
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    参考资料
+  </a>
+<nav aria-label="参考资料" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    书籍
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    课程
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    笔记
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    学习建议
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ZJU-Turing/TuringCourses/tree/master/docs/major_basic/convex_optimization/index.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<div class="admonition warning">
+<p class="admonition-title">1720101322</p>
+</div>
+<h1 id="_1">优化基本理论与方法<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div class="badges">
+<span class="badge cs-badge">CS 专业基础</span>
+<span class="badge ai-badge">AI 专业基础</span>
+<span class="badge is-badge">IS 专业基础</span>
+</div>
+<h2 id="_2">课程学习内容<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>课程大部分内容可以概括为凸优化，但并不完全是凸优化，因此称为 “优化基本理论与方法” 也是合理的。课本内容大概可以分为<strong>黑箱优化</strong>和<strong>结构优化</strong>，但是课程所讲的绝大部分内容都属于黑箱优化。简单概括课程大纲如下：</p>
+<ul>
+<li>Introduction<ul>
+<li>优化问题的范式，基本概念和与机器学习的联系</li>
+</ul>
+</li>
+<li>光滑优化基础<ul>
+<li><span>(<span class="heti-spacing"> </span></span>一阶、二阶<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>近似，可微函数类</li>
+<li>凸<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>强凸的定义，凸<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>强凸函数类，光滑凸<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>强凸函数类</li>
+</ul>
+</li>
+<li>下降方法<ul>
+<li>梯度下降法</li>
+<li>牛顿法，共轭梯度法</li>
+</ul>
+</li>
+<li>加速方法<ul>
+<li>基于光滑凸<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>强凸函数类的一阶局部黑箱优化的下降速率极限</li>
+<li><span>Nesterov<span class="heti-spacing"> </span></span>加速梯度下降方法<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>最优算法<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>及其性能分析</li>
+</ul>
+</li>
+<li>一般凸问题<ul>
+<li>一般凸函数，闭凸性<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>连续性<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>可微性</li>
+<li>分离定理，次梯度<span><span class="heti-spacing"> </span>(Subgradient)</span></li>
+<li>次梯度下降，<span>Frank-Wolfe<span class="heti-spacing"> </span></span>算法</li>
+</ul>
+</li>
+<li>结构优化<ul>
+<li>近端梯度下降<span><span class="heti-spacing"> </span>(Proximal Gradient Descent)</span>，<span>Douglas-Rachford<span class="heti-spacing"> </span></span>分离 </li>
+<li>对偶，<span>Lagrange<span class="heti-spacing"> </span></span>对偶以及<span class="heti-skip"><span class="heti-spacing"> </span>Fenchel<span class="heti-spacing"> </span></span>共轭</li>
+<li>光滑化方法，基于<span class="heti-skip"><span class="heti-spacing"> </span>Bregman<span class="heti-spacing"> </span></span>散度的镜像下降<span><span class="heti-spacing"> </span>(Mirror Descent)</span></li>
+</ul>
+</li>
+<li>随机梯度下降<ul>
+<li>随机取样，随机梯度下降<span><span class="heti-spacing"> </span>(Stochastic Gradient Descent)</span></li>
+<li>改进随机梯度下降，随机镜像下降，SVRG / SARAH</li>
+</ul>
+</li>
+</ul>
+<p><del>尽管看起来内容很多，但是你完全不需要学会，写作业只需要抄书，做<span class="heti-skip"><span class="heti-spacing"> </span>mid-term<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>final report<span class="heti-spacing"> </span></span>的时候再精准查查相关资料就行了<span class="heti-skip"><span class="heti-spacing"> </span>()<span class="heti-spacing"> </span></span>笔者表示根本没学会</del></p>
+<h3 id="_3">先修要求<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>数学分析<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>线性代数</li>
+</ul>
+<p>应用了大量分析方法，对分析学基础有一些要求；此外这门课研究的都是向量值函数，因此经常涉及向量和矩阵运算，需要具备基础线性代数知识。</p>
+<p>这门课也涉及少量概率统计（主要是最后两节课）和机器学习等内容，不过不了解也没啥问题。</p>
+<h2 id="_4">课程教材<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li>Yurii Nesterov. (2014). <em>Introductory Lectures on Convex Optimization: A Basic Course.</em> Springer.</li>
+</ul>
+<p>作者是凸优化领域的巨擘。前半学期的内容大部分都来自这里<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（不要相信书名中的 “basic” :-)</p>
+<ul>
+<li>Yurii Nesterov. (2018). <em>Lectures on Convex Optimization.</em> Springer.</li>
+</ul>
+<p>第二本书是第一本的修正和扩充，但是许多地方有改动（改正了旧版的一些错误，笔者学习时主要参考的书）。作者的出发视角很高，且极具理论性，这使得本书与其它优化书籍有截然不同的内容，但是其内容也因此有些晦涩抽象，尤其第二本书越到后面越如此。同时，在某种程度上，本书缺少清晰的脉络，定理也缺乏直观解释或者例题说明，笔者认为初学者都不应该使用这本书自学。</p>
+<h2 id="_5">分数构成<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><strong>考查</strong>课，故没有考试。分数构成如下：</p>
+<ul>
+<li>
+<p>作业<span><span class="heti-spacing"> </span>(50%)</span></p>
+<p>包括<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>次普通作业和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>次<span><span class="heti-spacing"> </span>mid-term</span>，普通作业一次布置<span class="heti-skip"><span class="heti-spacing"> </span>3-6<span class="heti-spacing"> </span></span>道题目，大部分都能够在<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>或者书上找到答案。 <span>Mid-term<span class="heti-spacing"> </span></span>则要求写代码、测试、写报告， <span>20<span class="heti-spacing"> </span></span>级的题目是用普通梯度下降法、拟牛顿法和共轭梯度法在小数据集上实现岭回归。注意作业和报告都是用<span class="heti-skip"><span class="heti-spacing"> </span>LaTeX<span class="heti-spacing"> </span></span>写的，会发<span class="heti-skip"><span class="heti-spacing"> </span>LaTeX<span class="heti-spacing"> </span></span>的模板，只要配好环境通过编译一关，修改对应的空处就可以快乐完成作业了。如果仔细研究所给的模板，还能学到很多<span class="heti-skip"><span class="heti-spacing"> </span>LaTeX<span class="heti-spacing"> </span></span>技巧。如果环境实在配不起来，可以考虑使用<a href="https://www.overleaf.com/"><span><span class="heti-spacing"> </span>overleaf</span></a>。</p>
+</li>
+<li>
+<p>报告<span><span class="heti-spacing"> </span>(50%)</span></p>
+<p>同样会给一个<span class="heti-skip"><span class="heti-spacing"> </span>LaTeX<span class="heti-spacing"> </span></span>报告模板，按照模板要求写就行了。会给几个研究方向，每个方向给一篇参考论文，选择一个研究方向写一篇报告即可。 <span>20<span class="heti-spacing"> </span></span>级所给的三个方向是从<span class="heti-skip"><span class="heti-spacing"> </span>ODE / Geometry / Game Theory<span class="heti-spacing"> </span></span>的角度研究<span class="heti-skip"><span class="heti-spacing"> </span>Nesterov<span class="heti-spacing"> </span></span>加速梯度下降。或许写成论文翻译，或许写成文献综述，也有真正的大佬疯狂推公式真的在做研究，看你想要做到什么程度。</p>
+</li>
+</ul>
+<h2 id="_6">任课教师<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><span>20<span class="heti-spacing"> </span></span>级的优化基本理论和方法只有钱徽一人开设。</p>
+<p>钱徽是无情的<span><span class="heti-spacing"> </span>PPT reader</span>，他会迅速地把他要讲的<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>讲下去，想要跟上其思路很难。他的声音毫无感情，虽然对该解释的地方也都会解释，甚至会温馨地画图，但总是毫无波澜，让人没有听的欲望。</p>
+<p>可能会出现钱徽的研究生来讲课，声音颇有口音，但是比较洪亮，没有钱徽那么催眠。其讲课风格很有学生特色，相比钱徽容易听懂一些，但是口音听着很难受。</p>
+<p>钱徽人非常<span><span class="heti-spacing"> </span>nice</span>，也非常忙，可能是低调的隐藏强者，是<span class="heti-skip"><span class="heti-spacing"> </span>2022<span class="heti-spacing"> </span></span>年下半年疫情拉扯期各大课程老师中<strong>唯一</strong>准确判断本学期后续所有课程一直网课的老师。问他问题他总会抽时间耐心地解答（笔者问过几次问题，有的是<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>有错，有的是写得不清楚），但是考虑到他很忙，所以有的时候总是保持未读状态（但是一旦已读他一定会快速回复）。钱徽是<span class="heti-skip"><span class="heti-spacing"> </span>20<span class="heti-spacing"> </span></span>级大三秋冬专业课唯一给分之神，让几乎所有人都对成绩很满意，<span>100<span class="heti-spacing"> </span></span>人的群收到的谢谢老师高达<span><span class="heti-spacing"> </span>70+</span> ，比很多<span class="heti-skip"><span class="heti-spacing"> </span>200+<span class="heti-spacing"> </span></span>人的习概群的谢谢老师还要多。</p>
+<h2 id="_7">参考资料<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_8">书籍<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>
+<p>Boyd, S.P., &amp; Vandenberghe, L. (2005). <em>Convex Optimization</em>. Journal of the American Statistical Association, 100, 1097 - 1097. </p>
+<p>作者是优化领域另一著名大佬<span><span class="heti-spacing"> </span>Stephen Boyd</span>，这本书是极其经典的凸优化教材，侧重凸分析的基础，一本相当厚的大部头。花了非常长的篇幅介绍函数的凸性、对偶等，不过有人认为介绍的算法非常有限。作者在自己主页挂了这本书的电子版：<a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf</a>。清华大学出版社翻译了本书，名字就叫《凸优化》。</p>
+<p>这本书也是斯坦福大学<a href="https://web.stanford.edu/class/ee364a/"><span><span class="heti-spacing"> </span>EE364a</span></a>、 <a href="https://web.stanford.edu/class/ee364b/"><span>EE364b<span class="heti-spacing"> </span></span></a>课程教材。</p>
+</li>
+<li>
+<p>Dimitri P. Bertsekas. (2009). <em>Convex Optimization Theory</em>. Athena Scientific.</p>
+<p>中文名《凸优化理论》，清华大学出版社<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>并不厚<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>个人觉得相之于前面的好读很多。</p>
+</li>
+<li>
+<p>Sra, Nowozin, Wright. (2011). <em>Optimization for Machine Learning</em>. MIT Press.</p>
+</li>
+<li>
+<p>R. T. Rockafellar. (1970). <em>Convex Analysis</em>. Princeton.</p>
+<p><span>Rockafellar<span class="heti-spacing"> </span></span>是优化领域绕不开的祖师级人物，不过他的文章有些太难了。本书包含了对凸集、凸函数、凸几何、约束凸优化的详尽理论推导。他的这本《凸分析》还有《变分分析（Variational Analysis）》等书感觉更适合数学专业的看……</p>
+</li>
+<li>
+<p>Giuseppe C. Calafiore, \&amp; Laurent El Ghaoui (2014), <em>Optimization Models</em><span>, Cambridge University Press.<span class="heti-spacing"> </span></span>据说难度适中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>包含了许多应用举例和分析：<a href="https://people.eecs.berkeley.edu/~elghaoui/optmodbook.html">https://people.eecs.berkeley.edu/~elghaoui/optmodbook.html</a></p>
+</li>
+<li>这个领域有很多人喜欢直接把自己写的书挂在<span class="heti-skip"><span class="heti-spacing"> </span>arxiv<span class="heti-spacing"> </span></span>上，下面几个都是不错的资料：<ul>
+<li>Sébastien Bubeck, <em>Convex Optimization: Algorithms and Complexity</em>, <a href="https://arxiv.org/abs/1405.4980">https://arxiv.org/abs/1405.4980</a>；</li>
+<li>Léon Bottou et al., <em>Optimization Methods for Large-Scale Machine Learning</em>,  <a href="https://arxiv.org/abs/1606.04838">https://arxiv.org/abs/1606.04838</a>；</li>
+<li>Francesco Orabona, <em>A Modern Introduction to Online Learning</em>, <a href="https://arxiv.org/abs/1912.13213">https://arxiv.org/abs/1912.13213</a>.</li>
+</ul>
+</li>
+</ul>
+<p>就中文书而言，笔者知道的有：</p>
+<ul>
+<li>袁亚湘<span class="heti-skip"><span class="heti-spacing"> </span>, &amp;<span class="heti-spacing"> </span></span>孙文瑜<span class="heti-skip"><span class="heti-spacing"> </span>. (1997).<span class="heti-spacing"> </span></span>最优化理论与方法<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>科学出版社<span><span class="heti-spacing"> </span>.</span> （基本都是算法的纯数学分析和证明）</li>
+<li>陈宝林<span class="heti-skip"><span class="heti-spacing"> </span>. (2005).<span class="heti-spacing"> </span></span>最优化理论与算法<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>清华大学出版社<span><span class="heti-spacing"> </span>.</span> （教材）</li>
+</ul>
+<p>近年，北京大学文再文老师课题组编写了两本教材：</p>
+<ul>
+<li>（详细版） 刘浩洋<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>户将<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>李勇锋，文再文，最优化：建模、算法与理论<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>高教出版社；</li>
+<li>（简化版）刘浩洋<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>户将<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>李勇锋，文再文，最优化计算方法，高教出版社；
+介绍了的最优化的基本概念、典型案例、基本算法和理论，内容紧凑，理论充实（美中不足的缺点可能是印刷质量有点差 :-）网页：<a href="http://faculty.bicmr.pku.edu.cn/~wenzw/optbook.html">http://faculty.bicmr.pku.edu.cn/~wenzw/optbook.html</a>。</li>
+</ul>
+<h3 id="_9">课程<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><span>CMU<span class="heti-spacing"> </span></span>课程<span class="heti-skip"><span class="heti-spacing"> </span>Convex Optimization.<span class="heti-spacing"> </span></span>深入浅出的优秀课程：<a href="https://www.stat.cmu.edu/~ryantibs/convexopt/">https://www.stat.cmu.edu/~ryantibs/convexopt/</a></li>
+<li>EPFL Course - Optimization for Machine Learning - CS-439，<a href="https://github.com/epfml/OptML_course">https://github.com/epfml/OptML_course</a></li>
+<li>中科大凌青老师的最优化理论课程：<a href="https://www.bilibili.com/video/BV19M411T7S7">https://www.bilibili.com/video/BV19M411T7S7</a></li>
+<li>CSE 535, Theory of Optimization and Continuous Algorithms. <a href="https://yintat.com/teaching/cse535-spring21/">https://yintat.com/teaching/cse535-spring21/</a></li>
+<li><span>ELE522: Large-Scale Optimization for Data Science.<span class="heti-spacing"> </span></span>钱老师的授课内容有所参考：<a href="https://yuxinchen2020.github.io/ele522_optimization/">https://yuxinchen2020.github.io/ele522_optimization/</a></li>
+<li><span>IE 598: Big Data Optimization.<span class="heti-spacing"> </span></span>钱老师的授课内容有所参考：<a href="https://github.com/niaohe/Big-Data-Optimization-Course">https://github.com/niaohe/Big-Data-Optimization-Course</a></li>
+</ul>
+<p>除此之外，如果仅是为了机器学习和深度学习的工作，其实并不一定要深入了解凸优化，一些基本优化算法在深度学习教材或者课程里都会提及。</p>
+<h3 id="_10">笔记<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><span>20<span class="heti-spacing"> </span></span>级的金鱼马同学为这门课总结了详细的笔记：<a href="https://www.zhihu.com/column/c_1676006565717573634">https://www.zhihu.com/column/c_1676006565717573634</a>，如果你发现笔记有错误，请联系他指出问题<ul>
+<li>在写笔记的过程中，金鱼马同学也发现知乎上也有不少关于优化的文章，例如：<ul>
+<li><a href="https://www.zhihu.com/column/convex">https://www.zhihu.com/column/convex</a></li>
+<li><a href="https://www.zhihu.com/column/c_119426147">https://www.zhihu.com/column/c_119426147</a></li>
+<li><a href="https://www.zhihu.com/column/c_1263999612412952576">https://www.zhihu.com/column/c_1263999612412952576</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_11">学习建议<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>可以迷迷糊糊地水过这门课，作业抄抄，代码糊糊，论文水水，也会得到钱徽的宽宥，得到还行的成绩。</p>
+<p>这门课的知识和机器学习、数据分析和建模等很多学科领域紧密相关，比如梯度下降、随机方法等都可以用于机器学习模型的训练。许多分析结论也很有意义，比如一阶局部黑箱优化理论最优的下降速率，还有光滑化的处理， “次梯度” 的引入也让人耳目一新。</p>
+<p>不过，志不在此的同学建议也可以水一些，毕竟要真的学会这门课要花的精力还是不少的，可能以后也用不到。但是想要踏踏实实做研究，想要明白其所以然的同学还是可以认真学一学。</p>
+<hr/>
+<style>
+#footer-wrapper {
+    white-space: nowrap;
+}
+#footer-wrapper > p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -10px;
+}
+#footer-wrapper > p > .twemoji > svg {
+    max-width: none;
+}
+.contributors {
+    min-width: 30px;
+    line-height: 0;
+    white-space: normal;
+    width: 100%;
+}
+.contributors > a {
+    margin-right: -8px;
+}
+.contributors > a > img {
+    width: 30px;
+    border-radius: 15px;
+}
+</style>
+<div id="footer-wrapper">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg></span> 2024-07-04  <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></span> Contributors <span class="contributors"><a href="https://github.com/GoldfishHorse" target="_blank" title="GoldfishHorse"><img alt="GoldfishHorse" src="https://avatars.githubusercontent.com/u/104991291"/></a><a href="https://github.com/ZhouTimeMachine" target="_blank" title="ZhouTimeMachine"><img alt="ZhouTimeMachine" src="https://avatars.githubusercontent.com/u/99057383"/></a><a href="https://github.com/TonyCrane" target="_blank" title="TonyCrane"><img alt="TonyCrane" src="https://avatars.githubusercontent.com/u/44120331"/></a></span></p>
+</div>
+<style>
+.md-content .admonition:first-of-type {
+    display: none;
+    margin-top: 0;
+}
+</style>
+<script>
+(() => {
+    let banner = document.querySelector(".md-content .admonition:first-of-type");
+    let child = banner.children[0];
+    let time_updated = new Date(child.innerText * 1000);
+    let time_current = new Date();
+    let diff_month = (time_current - time_updated) / 1000 / 60 / 60 / 24 / 30;
+    if (diff_month > 12.000000) {
+        banner.style.display = "flow-root";
+        child.innerHTML = "本页面最后更新于 " + Math.round(diff_month) + " 个月前，内容可能已经过时，请注意鉴别";
+    }
+})();
+</script>
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOIw_0vs4CTjmC" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="pathname" data-reactions-enabled="1" data-repo="ZJU-Turing/TuringCourses" data-repo-id="R_kgDOIw_0vg" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
+</script>
+<script>
+    if (document.querySelector("body").getAttribute("data-md-color-scheme") === "slate") {
+      var giscus = document.querySelector("script[src*=giscus]")
+      giscus.setAttribute("data-theme", "https://gcore.jsdelivr.net/gh/TonyCrane/note/docs/css/giscus.css") 
+    }
+  </script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+              回到页面顶部
+            </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 理论计算机科学导引" class="md-footer__link md-footer__link--prev" href="../theory_of_computation/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  上一页
+                </span>
+                理论计算机科学导引
+              </div>
+</div>
+</a>
+<a aria-label="下一页: 操作系统原理与实践" class="md-footer__link md-footer__link--next" href="../operating_system/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  下一页
+                </span>
+                操作系统原理与实践
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2023-2024 浙江大学图灵班
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.action.edit", "navigation.tracking", "navigation.top", "navigation.tabs", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../js/katex.js"></script>
+</body>
+</html>

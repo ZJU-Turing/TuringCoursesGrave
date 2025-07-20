@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="图灵班学习指南" name="description"/>
+<link href="https://ZJU-Turing.github.io/TuringCourses/others/finance/" rel="canonical"/>
+<link href="../economics/" rel="prev"/>
+<link href="../browser_server_software/" rel="next"/>
+<link href="../../images/icon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>金融学类课程集 - 图灵班学习指南</title>
+<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<link href="../../css/tasklist.css" rel="stylesheet"/>
+<link href="../../css/card.css" rel="stylesheet"/>
+<link href="../../css/custom.css" rel="stylesheet"/>
+<link href="../../css/counter.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script src="../../js/scheme.js" type="text/javascript"></script>
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+            跳转至
+          </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="图灵班学习指南" class="md-header__button md-logo" data-md-component="logo" href="../.." title="图灵班学习指南">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            图灵班学习指南
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              金融学类课程集
+            
+          </span>
+</div>
+</div>
+</div>
+<div class="md-header__options">
+<div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+<a class="light-mode" href="javascript:toggleScheme();" title="Light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</a>
+<a class="dark-mode" href="javascript:toggleScheme();" title="Dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</a>
+<a class="system-mode" href="javascript:toggleScheme();" title="System preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
+</a>
+<a class="unknown-mode" href="javascript:toggleScheme();" title="Unknown scheme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10Z"></path></svg>
+</a>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ZJU-Turing/TuringCourses/" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ZJU-Turing/TuringCourses
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        主页
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../political/">
+        思政军体课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../general/">
+        通识选修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../math_phys/">
+        数理基础课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_basic/">
+        专业基础课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_mandatory/">
+        专业必修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_module/">
+        专业模块课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../major_elective/">
+        专业选修课
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../short_term/">
+        短学期课程
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        跨专业课程
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../readings/">
+        书评专区
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="图灵班学习指南" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="图灵班学习指南">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"></path></svg>
+</a>
+    图灵班学习指南
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ZJU-Turing/TuringCourses/" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ZJU-Turing/TuringCourses
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">主页</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="主页" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../contributing/">
+        贡献指南
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../template/">
+        课程页面模板
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../changelog/">
+        更新历史
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../political/">思政军体课</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="思政军体课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          思政军体课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/situation_policy1/">
+        形势与政策 Ⅰ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/morality_law/">
+        思想道德与法治
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/modern_history/">
+        中国近现代史纲要（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/marxism_basic/">
+        马克思主义基本原理（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/mao_thought/">
+        毛泽东思想和中国特色社会主义理论体系概论（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/xi_thought/">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/situation_policy2/">
+        形势与政策 Ⅱ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../political/military_theory/">
+        军事理论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../general/">通识选修课</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="通识选修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          通识选修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/core/">
+        通识核心课
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/elective/">
+        通识选修课
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../general/others/">
+        其他选修课
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math_phys/">数理基础课</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="数理基础课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          数理基础课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/linear_algebra1/">
+        线性代数 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/linear_algebra2/">
+        线性代数 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/math_analysis1/">
+        数学分析（甲）Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/math_analysis2/">
+        数学分析（甲）Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics1/">
+        普通物理学 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics2/">
+        普通物理学 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics_experiment1/">
+        普通物理学实验 Ⅰ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/physics_experiment2/">
+        普通物理学实验 Ⅱ（H）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math_phys/probability/">
+        概率论（H）
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_basic/">专业基础课</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业基础课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          专业基础课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/programming/">
+        程序设计与算法基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/cyberspace_security/">
+        网络空间安全导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/discrete_math/">
+        离散数学理论基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/ai_basic/">
+        人工智能引论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/data_structure/">
+        数据结构基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/advanced_data_structure/">
+        高级数据结构与算法分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/logic_design/">
+        计算机逻辑设计基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/computer_organization/">
+        计算机组成与设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/object_oriented_programming/">
+        面向对象程序设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/theory_of_computation/">
+        理论计算机科学导引
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/convex_optimization/">
+        优化基本理论与方法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/operating_system/">
+        操作系统原理与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/computer_system1/">
+        计算机系统 Ⅰ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/computer_system2/">
+        计算机系统 Ⅱ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_basic/computer_system3/">
+        计算机系统 Ⅲ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_mandatory/">专业必修课</a>
+<label for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业必修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          专业必修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/database/">
+        数据库系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_networks/">
+        计算机网络
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_architecture/">
+        计算机体系结构
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/software_engineering/">
+        软件工程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/compilers_principles/">
+        编译原理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/cognitive_neuroscience/">
+        认知神经科学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/machine_learning/">
+        机器学习
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_ethics_security/">
+        人工智能伦理与安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_practice/">
+        人工智能实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/computer_vision/">
+        计算机视觉导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/design_cognition/">
+        设计认知与设计智能
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_chips_systems/">
+        人工智能芯片与系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/natural_language_processing/">
+        自然语言处理导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/assemble/">
+        汇编语言
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/cryptography/">
+        密码学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/data_security/">
+        数据安全与隐私保护
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/software_security/">
+        软件安全原理和实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/network_security/">
+        网络安全原理与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/ai_security/">
+        人工智能安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/wireless_iot_security/">
+        无线与物理网安全基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_mandatory/system_security/">
+        系统安全原理和实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_module/">专业模块课</a>
+<label for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业模块课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          专业模块课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/numerical_analysis/">
+        数值分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/applied_operations_research/">
+        应用运筹学基础
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/principle_of_programming_languages/">
+        编程语言原理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/history_of_cs_ideas/">
+        计算机科学思想史
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/data_mining/">
+        数据挖掘导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/assembly_interface/">
+        汇编与接口
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/embedded_system/">
+        嵌入式系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/parallel_computing/">
+        并行计算与多核编程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/system_comprehensive_practice/">
+        计算机系统综合实现
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/distributed_computing/">
+        分布式计算
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_module/big_data_storage/">
+        大数据存储与计算技术
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../major_elective/">专业选修课</a>
+<label for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="专业选修课" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          专业选修课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/technology_communication/">
+        技术沟通
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/digital_image_processing/">
+        图像信息处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/signal_processing_for_cybersecurity/">
+        面向信息安全的信号处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/brain_inspired_ai/">
+        脑启发人工智能导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/ai_logic/">
+        人工智能逻辑
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computational_photography/">
+        计算摄影学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computer_vision/">
+        计算机视觉
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/introduction_to_data_visualization/">
+        数据可视化导论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/special_discussion/">
+        专题研讨
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/social_network_security/">
+        社交网络安全与隐私
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/quantum_computing/">
+        量子计算理论基础与软件系统
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/multimedia_security/">
+        多媒体安全
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/computer_graphics/">
+        计算机图形学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/intelligent_acquisition_of_visual_information/">
+        智能视觉信息采集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../major_elective/research_advances_in_computer_graphics/">
+        计算机图形学研究进展
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">短学期课程</a>
+<label for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="短学期课程" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          短学期课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" id="__nav_9_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">固定课程</a>
+<label for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="固定课程" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+          固定课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ics/">
+        计算机系统概论
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ai_practice/">
+        人工智能实践
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" id="__nav_9_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">课程综合实践 Ⅰ</a>
+<label for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="课程综合实践 Ⅰ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+          课程综合实践 Ⅰ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/hpc/">
+        超算实训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/acm/">
+        算法竞赛集训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/ctf/">
+        安全攻防实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/data_visualization/">
+        大数据可视化
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" id="__nav_9_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../short_term/">课程综合实践 Ⅱ</a>
+<label for="__nav_9_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="课程综合实践 Ⅱ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_4">
+<span class="md-nav__icon md-icon"></span>
+          课程综合实践 Ⅱ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/cpp_project/">
+        C++ 项目管理及工程实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/rust/">
+        Rust 开发实训
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/llm_practice/">
+        大模型应用与实践
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../short_term/data_market/">
+        数据要素市场概论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">跨专业课程</a>
+<label for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="跨专业课程" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          跨专业课程
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ode/">
+        常微分方程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../numerical_linear_algebra/">
+        数值代数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data_modeling_and_analysis/">
+        数据建模与分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../abstract_algebra/">
+        抽象代数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../number_theory/">
+        数论导引
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stochastic_process/">
+        随机过程
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../point_set_topology/">
+        点集拓扑
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../economics/">
+        经济学类课程集
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          金融学类课程集
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        金融学类课程集
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_1">
+    金融学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_2">
+    会计学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_3">
+    公司金融
+  </a>
+<nav aria-label="公司金融" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    内容简介
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    预修要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    考核方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    教材与参考书籍
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_4">
+    投资学 / 证券投资学
+  </a>
+<nav aria-label="投资学 / 证券投资学" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    内容简介
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    预修要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    考核方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    教材与参考书籍
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_5">
+    固定收益证券分析和模型
+  </a>
+<nav aria-label="固定收益证券分析和模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    内容简介
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    预修要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    考核方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    教材与参考书籍
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_6">
+    资产定价
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_7">
+    金融工程学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_8">
+    国际金融学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_9">
+    保险学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_10">
+    商业银行经营与管理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_11">
+    量化投资
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../browser_server_software/">
+        B/S 体系软件设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../electronic_engineering_training/">
+        电子工程训练
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction_to_psychology/">
+        心理学导论
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../readings/">书评专区</a>
+</div>
+<nav aria-label="书评专区" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          书评专区
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_1">
+    金融学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_2">
+    会计学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_3">
+    公司金融
+  </a>
+<nav aria-label="公司金融" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    内容简介
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    预修要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    考核方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    教材与参考书籍
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_4">
+    投资学 / 证券投资学
+  </a>
+<nav aria-label="投资学 / 证券投资学" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    内容简介
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    预修要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    考核方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    教材与参考书籍
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_5">
+    固定收益证券分析和模型
+  </a>
+<nav aria-label="固定收益证券分析和模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    内容简介
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    预修要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    考核方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    教材与参考书籍
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_6">
+    资产定价
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_7">
+    金融工程学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_8">
+    国际金融学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_9">
+    保险学
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_10">
+    商业银行经营与管理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#course_11">
+    量化投资
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<script defer="" src="../../js/toc.js"></script>
+<link href="../../css/fold_toc.css" rel="stylesheet"/>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ZJU-Turing/TuringCourses/tree/master/docs/others/finance/index.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<div class="admonition warning">
+<p class="admonition-title">1707145484</p>
+</div>
+<h1 id="_1">金融学类课程集<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">前排提醒</p>
+<p>本页面包括<a href="#course_1">金融学</a>、<a href="#course_2">会计学</a>、<a href="#course_3">公司金融</a>、<a href="#course_4">投资学<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>证券投资学</a>、<a href="#course_5">固定收益证券分析和模型</a>、<a href="#course_6">资产定价</a>、<a href="#course_7">金融工程学</a>、<a href="#course_8">国际金融学</a>、<a href="#course_9">保险学</a>、<a href="#course_10">商业银行经营与管理</a>、<a href="#course_11">量化投资</a>十一门金融学类的课。</p>
+<p>页面内容较多，目录结构较复杂，已采用折叠处理，定位至具体课程部分后才会显示该课程下详细目录。</p>
+</div>
+<p>说到金融可能不少同学会觉得这是一个金属味道很重的学科，的确，相比于经济学，金融学更偏向于资金的募集与投资：金融学是从经济学分化出来的，是研究公司、个人、政府、与其他机构如何招募和投资资金的学科。</p>
+<p>传统的金融学研究领域大致有两个方向：宏观金融学和微观金融学。</p>
+<ul>
+<li>宏观金融学的内容与宏观经济学有一定的重合，主要包括货币银行学、国际金融学以及金融监管等内容</li>
+<li>微观金融学也即国际学术界通常理解的<span><span class="heti-spacing"> </span>Finance</span>，包括了金融学的几个最为关键的话题：投资学，公司金融以及资产定价，当然也有与金融机构相关的商业银行学、保险学等分支学科。</li>
+</ul>
+<p>下面我们将逐一介绍相关课程。</p>
+<hr/>
+<h2 id="course_1">金融学<a class="headerlink" href="#course_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>这门课是金融学的导论课程，是金融学的第一门专业课程，概述了金融学的各个方向。课程内容主要包括四大部分：</p>
+<ul>
+<li>金融工具：主要包括货币、票据和资本证券等</li>
+<li>金融机构：主要包括中央银行、商业银行和非银行金融机构等</li>
+<li>金融市场：主要包括货币市场、资本市场等</li>
+<li>金融管理：主要包括宏观金融调控与宏观金融监管</li>
+</ul>
+<p>这门课几乎不需要什么预修要求，因为实际上是和经济学第一门课微观经济学同时上的，当然如果知道一些基本的经济学常识会更容易理解其中的内容。这门课作为导论课的特点就是内容多且杂，但是不深，所以考试比较头大，需要背的内容非常多，如果不喜欢这种考试形式笔者很推荐读者看方岳老师的智云课堂，因为老师讲得非常生动且清晰，能把这么多细碎的知识点生动展现，属实不易。</p>
+<p>需要注意的是，接下来介绍的金融学课程并不直接依赖于这门课，因为基础知识各门课老师基本都会重新讲一遍，但如果大家学过或者看过这门导论课的话，相对而言入门会更加轻松，因此辅修的同学都可以先大致的过一下这门课再学习接下来的课程，会有一定的帮助。</p>
+<hr/>
+<h2 id="course_2">会计学<a class="headerlink" href="#course_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>会计学是对财务信息的记录、分析和交流的学科，如果需要区分它与经济学、金融学，最简单粗暴的方法就是将会计学理解为“算账”（会计专业的同学不要抨击我）。会计学课程以会计信息形成过程为主线，以会计核算方法为重点，结合当前会计实务介绍会计的基本原理。主要内容包括：</p>
+<ul>
+<li>会计要素的经济意义及相互关系</li>
+<li>会计要素的确认、计量和报告的原则与规范</li>
+<li>会计循环</li>
+<li>资产、负债、所有者权益、收入、费用、利润等各项要素的具体确认和计量的方法与程序</li>
+<li>财务报告及其分析</li>
+</ul>
+<p>资产负债、财务报表等实际上在公司金融还会再学习一遍，而且公司金融的老师也不会默认你学过会计学，也都会仔细讲解一遍。这门课属于辅修课程，但笔者没有选过，所以留待有缘人补充。</p>
+<hr/>
+<h2 id="course_3">公司金融<a class="headerlink" href="#course_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_2">内容简介<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>公司金融是金融学最重要的研究方向之一，课程主要讲授公司金融的三个基本问题，包括公司的投资决策、融资决策、以及股利政策，具体内容如下：</p>
+<ul>
+<li>投资决策：围绕项目估值相关原理展开，主要内容包括：时间价值、资产定价、项目判断方法以及资本项预算原理</li>
+<li>融资决策：围绕公司资本结构相关原理展开，主要内容包括：现代资产组合理论、资本资产定价模型、市场效率、杠杆（<span>MM<span class="heti-spacing"> </span></span>理论）以及公司融资方法</li>
+<li>股利决策：围绕公司红利和股票回购相关原理展开</li>
+</ul>
+<h3 id="_3">预修要求<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>无，但有微观经济学和金融学基础对于部分内容的学习理解有帮助。</p>
+<h3 id="_4">考核方式<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>作业<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>到课（20%）：共两次作业，每个章节<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>题左右。到课方面笔者选择线上班没有这方面顾虑，当然洪鑫老师本来也不点名</li>
+<li>文献综述（30%）：个人作业，中英文均可，<span>5<span class="heti-spacing"> </span></span>页以内</li>
+<li>期末考试（50%）：开卷考试，允许带计算器（且很有必要带）</li>
+</ul>
+<p>这门课由主要洪鑫老师开设，洪鑫老师授课思路很清楚，而且人特别好，疫情期间不断的降低作业以及考试要求，非常理解学生。</p>
+<h3 id="_5">教材与参考书籍<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong><em>Corporate Finance</em> <span>[<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Stephen A. Ross</span></strong></p>
+<p>享誉世界的公司金融经典教材，就是真的太厚了，实际上看老师<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>完全足够了。</p>
+<hr/>
+<h2 id="course_4">投资学<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>证券投资学<a class="headerlink" href="#course_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_6">内容简介<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>投资学是金融学最重要的研究方向之一，对于辅修同学而言这门课的主干内容被拆分到了很多课程之中，其中最主要的是证券投资学（经济学院有开设投资学课程，但是仅面向金融学试验班）。证券投资学主要讲授股票、债券、投资基金等证券投资工具的基本概念，研究证券市场的结构、制度以及资本定价等理论，并通过对证券投资的基本分析与技术分析，使学生掌握证券投资的技巧和能力。具体内容安排如下：</p>
+<ul>
+<li>证券投资学概论：介绍投资与投机等基础概念</li>
+<li>证券投资对象：介绍股票、基金、债券、衍生品等基本的证券投资对象</li>
+<li>证券市场：介绍国内外的证券市场基本情况</li>
+<li>证券投资理论：包括有效市场假说、资产组合理论、资本资产定价模型以及套利定价模型等基本投资学理论</li>
+<li>基本分析与技术分析：投资实务中如何对公司、行业等进行分析</li>
+</ul>
+<h3 id="_7">预修要求<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>实际上可有可无，但学过金融学、公司金融等会对部分内容提前熟悉，这一点还是比较重要的，因为老师基本上默认你有基本的金融学常识，不会从零开始解释。</p>
+<h3 id="_8">考核方式<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>论文：40%</li>
+<li>考试：60%</li>
+</ul>
+<p>这门课老师现在只有汪炜教授，汪炜老师上课还是很清楚的，对于理论的讲解很不错，只是给分确实一言难尽。之前人称“浙大巴菲特”的李兴建老师已经退休，李兴建老师对于理论重视程度不高，主要讲实际的股票市场，一些投资的经验还有市场分析等。</p>
+<h3 id="_9">教材与参考书籍<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong><em>《证券投资学》</em> 曹凤岐</strong></p>
+<p>指定教材，但实际上看老师的课件就足够了。</p>
+<p><strong><em>Investments</em> <span>[<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Zvi</span> Bodie</strong></p>
+<p>相当经典的投资学教材，体系相当完整，感兴趣的可以作为补充材料学习。</p>
+<hr/>
+<h2 id="course_5">固定收益证券分析和模型<a class="headerlink" href="#course_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_10">内容简介<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>固定收益是投资者按事先规定好的利息率获得的收益，如债券和存单在到期时，投资者即可领取约定利息。本课程介绍固定收益证券的基础知识、风险管理以及几种常见的衍生品以及最后的二叉树、连续时间定价模型，具体内容如下：</p>
+<ul>
+<li>基础知识：包括无套利原则、回购协议等概念，以及零息债券、付息债券以及浮动利率债券的定价</li>
+<li>利率风险管理：包括久期、凸性、斜率、曲率等概念以及管理利率风险的方法（如因子中性）</li>
+<li>衍生品：远期、互换、期货、期权的基本概念以及基于无套利原则的定价以及投资策略等</li>
+<li>二叉树模型：介绍单步、多步二叉树模型，介绍基于二叉树和无套利的定价，以及风险中性定价等</li>
+<li>连续时间利率模型：介绍布朗运动、伊藤引理等</li>
+</ul>
+<h3 id="_11">预修要求<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>线性代数、微积分等基本数学知识</li>
+<li>公司金融</li>
+<li>投资学（证券投资学）</li>
+<li>计量经济学</li>
+</ul>
+<h3 id="_12">考核方式<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>小组作业：40%（关于债券超额收益率的大作业，需要展示，需要一定的计量经济学基础）</li>
+<li>考试：60%</li>
+</ul>
+<p>这门课的任课老师是许奇老师，老师很帅，但这门课是<strong>全英文</strong>课，所以经常听到一半就完全跟丢了，但仔细听的话老师上课还是不错的。老师给分很好，期末考试也不会为难大家，只是这门课理解难度确实存在，特别是衍生品绕了笔者很久，后面的二叉树部分也需要仔细理解（虽然考试不怎么考），整体而言这门课还是很有收获的，介绍了金融学里面很多很重要的概念，例如无套利、风险中性等。</p>
+<h3 id="_13">教材与参考书籍<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong><em>Fixed Income Securities: Valuation, Risk, and Risk Management</em> <span>[<span class="heti-spacing"> </span></span>美<span><span class="heti-spacing"> </span>] Pietro Veronesi</span></strong></p>
+<p>经典的固定收益教材，中文版翻译错误百出且质量很差，但也可以适当参考中文书。不看教材也没问题，老师的<span class="heti-skip"><span class="heti-spacing"> </span>PPT<span class="heti-spacing"> </span></span>也足够了。</p>
+<hr/>
+<h2 id="course_6">资产定价<a class="headerlink" href="#course_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>著名金融学神课，教材是斯蒂芬<span class="heti-skip"><span class="heti-spacing"> </span>·F·<span class="heti-spacing"> </span></span>勒罗伊的《金融经济学原理》，我相信大部分同学应该选不到这个层次的课程，毕竟这门课需要投资学、固定收益等多门本身就是高年级课程作为基础，除非双学位。但由于资产定价是金融学最重要的话题之一，因此我还是放在这里留待有缘人补充。</p>
+<hr/>
+<h2 id="course_7">金融工程学<a class="headerlink" href="#course_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>金融工程是<span class="heti-skip"><span class="heti-spacing"> </span>20<span class="heti-spacing"> </span></span>世纪<span class="heti-skip"><span class="heti-spacing"> </span>90<span class="heti-spacing"> </span></span>年代初西方国家出现的一门新兴金融学科。它运用工程技术的方法（数学建模、数值计算、网络图解、仿真模拟等）设计、开发和实施新型金融产品，创造性地解决金融问题。这门课主要讲解上世纪<span class="heti-skip"><span class="heti-spacing"> </span>70<span class="heti-spacing"> </span></span>年代以来金融界创造的主要新型金融衍生工具，如金融远期、金融互换、金融期货、金融期权、信用衍生品及其多种组合技术与技巧，也会介绍著名的<span class="heti-skip"><span class="heti-spacing"> </span>BS<span class="heti-spacing"> </span></span>期权定价模型等，并将介绍金融工程学的思想方法，即利用工程化的手段来解决现实生产与生活中的金融问题（主要包括金融产品的设计、定价、交易策略以及金融风险管理等）。这门课属于辅修课程，预修要求包括基本的投资学以及固定收益证券，但笔者没有选过，所以留待有缘人补充。</p>
+<hr/>
+<h2 id="course_8">国际金融学<a class="headerlink" href="#course_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>国际金融学是研究国际间的货币关系和国际金融活动规律的一门学科。该课程主要包括四方面内容：国际金融理论与政策；国际金融实务；国际金融市场活动；国际金融体系及国际金融协调机制等。该课程属于辅修课程，但笔者没有选过，所以留待有缘人补充。</p>
+<hr/>
+<h2 id="course_9">保险学<a class="headerlink" href="#course_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>相信保险一词各位并不陌生，或许读者家中已经买了非常多的各方面的保险但对于保险的基本常识并不了解，那么这门课是一个不错的入门选择，当然如果对保险精算有兴趣的也可以选修作为基础课程。课程包括风险管理及保险、保险基本原则、保险合同、保险数理基础、保险市场及监管、保险科技等六部分内容。本课程是后续社会保险、精算学和人寿与健康保险等课程的先修课程。笔者并未选过该课程，该课程也不在辅修之列，但的确内容不难，且涉及很多重要的生活常识，所以也是可以考虑的一个选择。笔者看过公共管理学院施红老师的课，讲得还是很不错的，感兴趣的同学可以体验一下。</p>
+<hr/>
+<h2 id="course_10">商业银行经营与管理<a class="headerlink" href="#course_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>本课程属于应用性很强的一门课，内容涵盖了商业银行经营管理与业务操作的各重要方面。课程的具体内容包括：导论，市场结构与组织机构，资本金管理，负债、资产、中间、投行及国际业务的经营管理，流动性、资产负债、风险以及盈利性管理，绩效分析与财务报告，市场营销管理，经营管理的发展趋势，共八个大的方面。该课程属于辅修课程，但笔者没有选过，所以留待有缘人补充。</p>
+<hr/>
+<h2 id="course_11">量化投资<a class="headerlink" href="#course_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>相信作为学计算机的同学，如果对钱感兴趣（错乱），量化绝对是一个不错的交叉方向。课程主要包括三方面内容：</p>
+<ul>
+<li>量化投资基础</li>
+<li>利用<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>实现经典的量化投资策略</li>
+<li>如何构建新的量化投资策略</li>
+</ul>
+<p>这门课会邀请两位业界专家与同学们分享经验。前半个学期是本校老师授课，后半学期则是业界专家授课。这门课要求完成两个构建量化投资策略的项目。由于笔者选课的时候觉得压力太大就直接退课了，所以具体内容留待有缘人补充。</p>
+<hr/>
+<style>
+#footer-wrapper {
+    white-space: nowrap;
+}
+#footer-wrapper > p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -10px;
+}
+#footer-wrapper > p > .twemoji > svg {
+    max-width: none;
+}
+.contributors {
+    min-width: 30px;
+    line-height: 0;
+    white-space: normal;
+    width: 100%;
+}
+.contributors > a {
+    margin-right: -8px;
+}
+.contributors > a > img {
+    width: 30px;
+    border-radius: 15px;
+}
+</style>
+<div id="footer-wrapper">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg></span> 2024-02-05  <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></span> Contributors <span class="contributors"><a href="https://github.com/yhwu-is" target="_blank" title="yhwu-is"><img alt="yhwu-is" src="https://avatars.githubusercontent.com/u/80104150"/></a></span></p>
+</div>
+<style>
+.md-content .admonition:first-of-type {
+    display: none;
+    margin-top: 0;
+}
+</style>
+<script>
+(() => {
+    let banner = document.querySelector(".md-content .admonition:first-of-type");
+    let child = banner.children[0];
+    let time_updated = new Date(child.innerText * 1000);
+    let time_current = new Date();
+    let diff_month = (time_current - time_updated) / 1000 / 60 / 60 / 24 / 30;
+    if (diff_month > 12.000000) {
+        banner.style.display = "flow-root";
+        child.innerHTML = "本页面最后更新于 " + Math.round(diff_month) + " 个月前，内容可能已经过时，请注意鉴别";
+    }
+})();
+</script>
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOIw_0vs4CTjmC" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="pathname" data-reactions-enabled="1" data-repo="ZJU-Turing/TuringCourses" data-repo-id="R_kgDOIw_0vg" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
+</script>
+<script>
+    if (document.querySelector("body").getAttribute("data-md-color-scheme") === "slate") {
+      var giscus = document.querySelector("script[src*=giscus]")
+      giscus.setAttribute("data-theme", "https://gcore.jsdelivr.net/gh/TonyCrane/note/docs/css/giscus.css") 
+    }
+  </script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+              回到页面顶部
+            </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 经济学类课程集" class="md-footer__link md-footer__link--prev" href="../economics/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  上一页
+                </span>
+                经济学类课程集
+              </div>
+</div>
+</a>
+<a aria-label="下一页: B/S 体系软件设计" class="md-footer__link md-footer__link--next" href="../browser_server_software/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  下一页
+                </span>
+                B/S 体系软件设计
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2023-2024 浙江大学图灵班
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.action.edit", "navigation.tracking", "navigation.top", "navigation.tabs", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../js/katex.js"></script>
+</body>
+</html>
